@@ -1,0 +1,5 @@
+/* Non-color tokens: spacing, typography, borders, shadows.
+   These values should be referenced by every other layer. */
+:root {
+    /* TODO: Define spacing, font, radius, and shadow tokens here */
+}

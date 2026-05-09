@@ -1,0 +1,34 @@
+/* Primary page layout: provided for you.
+   Focus your work on tokens, base, components, and utilities. */
+
+body {
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+    max-width: 64rem;
+    width: 100%;
+    margin-inline: auto;
+    padding-inline: var(--space-md, 1rem);
+}
+
+main > section {
+    margin-bottom: var(--space-xl, 3rem);
+}
+
+.page-header {
+    max-width: 64rem;
+    width: 100%;
+    margin-inline: auto;
+    padding: var(--space-lg, 2rem) var(--space-md, 1rem);
+}
+
+.page-footer {
+    max-width: 64rem;
+    width: 100%;
+    margin-inline: auto;
+    padding: var(--space-lg, 2rem) var(--space-md, 1rem);
+}
