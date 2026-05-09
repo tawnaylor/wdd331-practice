@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scripture Study Companion</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    <nav class="site-nav">
+        <a href="../../index.html">&larr; Home</a>
+        <ul>
+            <li><a href="#" aria-current="page">Study</a></li>
+            <li><a href="#">Bookmarks</a></li>
+            <li><a href="#">Journal</a></li>
+            <li><a href="#">Temples</a></li>
+        </ul>
+    </nav>
+
+    <header class="page-header">
+        <h1>Scripture Study Companion</h1>
+        <p>Explore topics, save insights, and deepen your understanding of the gospel of Jesus Christ.</p>
+    </header>
+
+    <main>
+        <section class="card-group">
+            <h2>Study Topics</h2>
+            <div class="cards">
+                <article class="card">
+                    <div class="card-tag">Book of Mormon</div>
+                    <h3>The Atonement of Jesus Christ</h3>
+                    <p>Alma teaches that Christ would take upon Himself the pains, sicknesses, and infirmities of His people so that He would know how to succor them.</p>
+                    <div class="card-footer">
+                        <span>Alma 7:11&ndash;13</span>
+                        <a href="#">Read</a>
+                    </div>
+                </article>
+                <article class="card">
+                    <div class="card-tag">Doctrine and Covenants</div>
+                    <h3>Personal Revelation</h3>
+                    <p>The Lord speaks peace to the mind and heart through the Holy Ghost. Learning to recognize these promptings is central to spiritual growth.</p>
+                    <div class="card-footer">
+                        <span>D&amp;C 8:2&ndash;3</span>
+                        <a href="#">Read</a>
+                    </div>
+                </article>
+                <article class="card">
+                    <div class="card-tag">New Testament</div>
+                    <h3>Faith in Christ</h3>
+                    <p>The Savior taught that faith as small as a mustard seed can move mountains. Faith is not just belief but a principle of action and power.</p>
+                    <div class="card-footer">
+                        <span>Matthew 17:20</span>
+                        <a href="#">Read</a>
+                    </div>
+                </article>
+                <article class="card">
+                    <div class="card-tag">Pearl of Great Price</div>
+                    <h3>The Plan of Salvation</h3>
+                    <p>Abraham saw that intelligences were organized before the world was, and that among them God chose noble and great ones to be rulers.</p>
+                    <div class="card-footer">
+                        <span>Abraham 3:22&ndash;23</span>
+                        <a href="#">Read</a>
+                    </div>
+                </article>
+                <article class="card">
+                    <div class="card-tag">Book of Mormon</div>
+                    <h3>The Tree of Life</h3>
+                    <p>Lehi and Nephi both saw that the tree of life represents the love of God, which is most desirable above all things and most joyous to the soul.</p>
+                    <div class="card-footer">
+                        <span>1 Nephi 11:21&ndash;23</span>
+                        <a href="#">Read</a>
+                    </div>
+                </article>
+                <article class="card">
+                    <div class="card-tag">New Testament</div>
+                    <h3>Charity Never Faileth</h3>
+                    <p>Paul wrote that charity is the greatest of all gifts. It suffers long, is kind, and endures all things. Without it, all other gifts are nothing.</p>
+                    <div class="card-footer">
+                        <span>1 Corinthians 13:4&ndash;8</span>
+                        <a href="#">Read</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="actions">
+            <h2>Quick Actions</h2>
+            <div class="button-group">
+                <button class="btn primary">New Study Session</button>
+                <button class="btn secondary">View Bookmarks</button>
+                <button class="btn secondary">Export Journal</button>
+                <button class="btn primary" disabled>Sync (Offline)</button>
+            </div>
+        </section>
+
+        <section class="study-note">
+            <h2>Add a Study Note</h2>
+            <form class="note-form">
+                <div class="form-field">
+                    <label for="reference">Scripture Reference</label>
+                    <input type="text" id="reference" placeholder="e.g. Moroni 10:3&ndash;5">
+                </div>
+                <div class="form-field">
+                    <label for="insight">Your Insight</label>
+                    <textarea id="insight" rows="4" placeholder="What stood out to you in this passage?"></textarea>
+                </div>
+                <div class="form-field">
+                    <label for="topic">Topic</label>
+                    <select id="topic">
+                        <option value="">Choose a topic</option>
+                        <option value="faith">Faith</option>
+                        <option value="repentance">Repentance</option>
+                        <option value="charity">Charity</option>
+                        <option value="obedience">Obedience</option>
+                        <option value="prayer">Prayer</option>
+                        <option value="service">Service</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn primary">Save Note</button>
+            </form>
+        </section>
+
+        <section class="temple-list">
+            <h2>Temples Near You</h2>
+            <ul class="temples">
+                <li>
+                    <span class="temple-name">Rexburg Idaho Temple</span>
+                    <span class="temple-status open">Open</span>
+                </li>
+                <li>
+                    <span class="temple-name">Idaho Falls Idaho Temple</span>
+                    <span class="temple-status open">Open</span>
+                </li>
+                <li>
+                    <span class="temple-name">Teton River Idaho Temple</span>
+                    <span class="temple-status construction">Under Construction</span>
+                </li>
+                <li>
+                    <span class="temple-name">Pocatello Idaho Temple</span>
+                    <span class="temple-status open">Open</span>
+                </li>
+            </ul>
+        </section>
+    </main>
+
+    <footer class="page-footer">
+        <p>&copy; Scripture Study Companion. Built as a WDD 331R assignment.</p>
+    </footer>
+</body>
+</html>
