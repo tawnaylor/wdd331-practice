@@ -1,4 +1,59 @@
 /* Form components: .note-form, .form-field, inputs, textarea, select
    Use native nesting. Add :focus-visible styles to all inputs. */
 
-/* TODO: Style the form components */
+.study-note {
+    h2 {
+        margin-bottom: var(--space-md);
+    }
+}
+
+.note-form {
+    background-color: var(--color-surface);
+    border: var(--border-width) solid var(--color-border);
+    border-radius: var(--radius-card);
+    padding: var(--space-lg);
+    box-shadow: var(--shadow-card);
+    max-width: 40rem;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+}
+
+.form-field {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+
+    label {
+        font-weight: 600;
+        font-size: var(--font-size-sm);
+        color: var(--color-text);
+    }
+}
+
+:is(input, textarea, select):where(.note-form *) {
+    padding: var(--space-sm) var(--space-md);
+    border: var(--border-width) solid var(--color-border);
+    border-radius: var(--radius-sm);
+    font-family: var(--font-main);
+    font-size: var(--font-size-base);
+    color: var(--color-text);
+    background-color: var(--color-background);
+    width: 100%;
+    transition: border-color var(--transition-base);
+
+    &:focus-visible {
+        outline: 3px solid var(--color-accent);
+        outline-offset: 0;
+        border-color: var(--color-accent);
+    }
+
+    &:not(:placeholder-shown) {
+        border-color: var(--color-primary);
+    }
+}
+
+textarea:where(.note-form *) {
+    resize: vertical;
+    min-height: calc(var(--space-lg) * 3);
+}

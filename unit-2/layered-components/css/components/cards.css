@@ -1,4 +1,77 @@
 /* Card components: .card-group, .cards grid, .card, .card-tag, .card-footer
    Use native nesting. Reference tokens with var(). */
 
-/* TODO: Style the card components */
+.card-group {
+    h2 {
+        margin-bottom: var(--space-md);
+    }
+}
+
+.cards {
+    display: grid;
+    gap: clamp(var(--space-md), 3vw, var(--space-lg));
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.card {
+    background-color: var(--color-surface);
+    border: var(--border-width) solid var(--color-border);
+    border-radius: var(--radius-card);
+    padding: var(--space-md);
+    box-shadow: var(--shadow-card);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+    transition: box-shadow var(--transition-base), transform var(--transition-base);
+
+    &:hover {
+        box-shadow: var(--shadow-card-hover);
+        transform: translateY(-2px);
+    }
+
+    h3 {
+        color: var(--color-primary);
+        margin-bottom: 0;
+    }
+
+    p {
+        font-size: var(--font-size-sm);
+        color: var(--color-text-muted);
+        flex: 1;
+        margin-bottom: 0;
+    }
+}
+
+.card-tag {
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    color: var(--color-accent);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: var(--space-sm);
+    font-size: var(--font-size-sm);
+    color: var(--color-text-muted);
+
+    a {
+        color: var(--color-primary);
+        font-weight: 600;
+        text-decoration: none;
+
+        &:hover {
+            color: var(--color-accent);
+            text-decoration: underline;
+        }
+
+        &:focus-visible {
+            outline: 3px solid var(--color-accent);
+            outline-offset: 2px;
+            border-radius: var(--radius-sm);
+        }
+    }
+}

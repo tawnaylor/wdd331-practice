@@ -2,5 +2,17 @@
    Name by purpose (--color-primary, --color-surface)
    not appearance (--blue, --light-gray). */
 :root {
-    /* TODO: Define color tokens here */
+    --color-primary: #2f5d50;
+    --color-primary-hover: #234840;
+    --color-background: #f7f4ef;
+    --color-surface: #ffffff;
+    --color-text: #1f1f1f;
+    --color-text-muted: #5a5a5a;
+    --color-accent: #d99a3d;
+    --color-accent-hover: #c0852b;
+    --color-border: #d1cdc4;
+    --color-status-open: #2f5d50;
+    --color-status-construction: #8a6200;
+    --color-status-open-bg: #e0f0ec;
+    --color-status-construction-bg: #fef3d0;
 }
