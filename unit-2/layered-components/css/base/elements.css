@@ -2,4 +2,62 @@
    No classes here, only bare HTML element selectors.
    Reference tokens with var(). */
 
-/* TODO: Style body, headings, links, and other base elements */
+body {
+    font-family: var(--font-main);
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-base);
+    color: var(--color-text);
+    background-color: var(--color-background);
+}
+
+:is(h1, h2, h3, h4, h5, h6) {
+    font-family: var(--font-heading);
+    line-height: 1.2;
+    color: var(--color-primary);
+    margin-bottom: var(--space-sm);
+}
+
+h1 {
+    font-size: var(--font-size-xl);
+}
+
+h2 {
+    font-size: var(--font-size-lg);
+}
+
+h3 {
+    font-size: 1.15rem;
+}
+
+p {
+    margin-bottom: var(--space-md);
+    color: var(--color-text);
+}
+
+a {
+    color: var(--color-primary);
+    text-decoration: underline;
+    transition: color var(--transition-base);
+
+    &:hover {
+        color: var(--color-accent);
+    }
+
+    &:focus-visible {
+        outline: 3px solid var(--color-accent);
+        outline-offset: 2px;
+        border-radius: var(--radius-sm);
+    }
+}
+
+ul {
+    list-style: none;
+}
+
+li {
+    margin-block: var(--space-xs);
+}
+
+footer {
+    margin-top: auto;
+}
