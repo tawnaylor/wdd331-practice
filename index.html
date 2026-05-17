@@ -3,27 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Taw Naylor - Practice Site</title>
-    <link rel="stylesheet" href="css/main.css">
+    <title>Taw Naylor — WDD 331R Advanced CSS</title>
+    <link rel="stylesheet" href="dist/styles.css">
 </head>
 <body>
-   <h1>Taw Naylor</h1>
-   <p>My name is Taw Naylor. I am a big D&amp;D nerd that loves all things creative and artistic.</p>
+    <nav class="site-nav">
+        <a href="index.html" class="nav-brand">Taw Naylor</a>
+        <ul>
+            <li><a href="index.html" aria-current="page">Home</a></li>
+            <li><a href="unit-1/custom-properties/index.html">Unit 1</a></li>
+            <li><a href="unit-2/layered-components/index.html">Unit 2</a></li>
+        </ul>
+    </nav>
 
-   <nav>
-      <h2>Assignments</h2>
-      <ul>
-         <li>
-            <a href="unit-1/custom-properties/index.html">
-               Custom Properties and Nesting
-            </a>
-         </li>
-         <li>
-            <a href="unit-2/layered-components/index.html">
-               Layered Components
-            </a>
-         </li>
-      </ul>
-   </nav>
+    <header class="page-header">
+        <h1>Taw Naylor</h1>
+        <p>WDD 331R Advanced CSS &mdash; Practice Site</p>
+    </header>
+
+    <main>
+        <section>
+            <h2>Assignments</h2>
+            <div class="card-grid">
+                <article class="card">
+                    <span class="card-tag">Unit 1</span>
+                    <h3>Custom Properties &amp; Nesting</h3>
+                    <p>Exploring CSS custom properties, design tokens, and native CSS nesting to build a maintainable style system for a Ward Activity Board.</p>
+                    <a href="unit-1/custom-properties/index.html" class="card-link">View Assignment</a>
+                </article>
+
+                <article class="card">
+                    <span class="card-tag">Unit 2</span>
+                    <h3>Layered Components</h3>
+                    <p>Building a full CSS architecture with cascade layers (@layer) to organize tokens, base styles, layout, components, and utilities.</p>
+                    <a href="unit-2/layered-components/index.html" class="card-link">View Assignment</a>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer class="page-footer">
+        <p>WDD 331R Advanced CSS &mdash; Spring 2026</p>
+    </footer>
 </body>
 </html>

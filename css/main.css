@@ -1,34 +1,20 @@
-*,
-*::before,
-*::after {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
+/* Declare cascade layer order. */
+@layer tokens, base, layout, components, utilities;
 
-:root {
-    --color-bg: #a2cefa;
-    --color-text: #1e293b;
-    --color-primary: #5700f8;
-    --color-primary-hover: #004f7f;
-    --space-sm: 0.5rem;
-    --space-md: 1rem;
-    --space-lg: 2rem;
-    --font-body: system-ui, -apple-system, sans-serif;
-}
+/* Tokens */
+@import "tokens/colors.css" layer(tokens);
+@import "tokens/variables.css" layer(tokens);
 
-body {
-    font-family: var(--font-body);
-    color: var(--color-text);
-    background-color: var(--color-bg);
-    line-height: 1.6;
-    padding: var(--space-lg);
-}
+/* Base */
+@import "base/reset.css" layer(base);
+@import "base/elements.css" layer(base);
 
-a {
-    color: var(--color-primary);
-}
+/* Layout */
+@import "layout/primary.css" layer(layout);
 
-a:hover {
-    color: var(--color-primary-hover);
-}
+/* Components */
+@import "components/nav.css" layer(components);
+@import "components/cards.css" layer(components);
+
+/* Utilities */
+@import "utilities/utilities.css" layer(utilities);
