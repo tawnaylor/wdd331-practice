@@ -20,6 +20,8 @@ jobs:
         run: npm ci
       - name: Build CSS
         run: npm run build
+      - name: Expose dist for deployment
+        run: sed -i '/^dist/d' .gitignore
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4
         with:
