@@ -12,6 +12,8 @@ The site deploys automatically to GitHub Pages on every push to main.
 
 ## CSS Architecture
 
+The site now supports light, dark, and system color themes. The color system lives in `css/tokens/colors.css`, with shared spacing and type tokens in `css/tokens/variables.css`.
+
 Source styles live in `css/` and are organized into cascade layers:
 
 ```
