@@ -1,0 +1,89 @@
+.theme-menu {
+    position: relative;
+    margin-left: auto;
+}
+
+.theme-menu summary {
+    list-style: none;
+}
+
+.theme-menu summary::-webkit-details-marker {
+    display: none;
+}
+
+.theme-control {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 2.5rem;
+    min-height: 2.5rem;
+    padding: var(--space-xs) var(--space-sm);
+    border: 1px solid var(--theme-toggle-border);
+    border-radius: var(--radius-pill);
+    background-color: var(--theme-toggle-bg);
+    color: var(--color-text);
+    cursor: pointer;
+    transition: background-color var(--transition-base), border-color var(--transition-base), color var(--transition-base), transform var(--transition-base);
+}
+
+.theme-menu > .theme-control::before {
+    content: "\2699\fe0f";
+    font-size: 1rem;
+    line-height: 1;
+}
+
+.theme-menu > .theme-control:hover,
+.theme-menu > .theme-control:focus-visible,
+.theme-pick:hover,
+.theme-pick:has(input:focus-visible),
+.theme-pick:has(input:checked) {
+    background-color: var(--theme-toggle-bg-hover);
+    border-color: var(--theme-toggle-border-hover);
+}
+
+.theme-menu > .theme-control:focus-visible,
+.theme-pick:has(input:focus-visible) {
+    outline: 3px solid var(--color-accent);
+    outline-offset: 2px;
+}
+
+.theme-extra {
+    position: absolute;
+    top: calc(100% + var(--space-xs));
+    right: 0;
+    display: flex;
+    gap: var(--space-xs);
+    padding: var(--space-xs);
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-pill);
+    box-shadow: var(--shadow-card);
+}
+
+.theme-pick {
+    position: relative;
+    padding-inline: var(--space-sm);
+}
+
+.theme-pick input {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.theme-pick span[aria-hidden="true"] {
+    font-size: 1rem;
+    line-height: 1;
+}
+
+@media (max-width: 40rem) {
+    .theme-menu {
+        margin-left: 0;
+    }
+
+    .theme-extra {
+        right: auto;
+        left: 0;
+    }
+}

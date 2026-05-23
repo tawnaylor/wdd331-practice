@@ -1,18 +1,63 @@
-/* Color tokens: define all color values for the site.
-   Name by purpose (--color-primary, --color-surface)
-   not appearance (--blue, --light-gray). */
 :root {
-    --color-primary: #2f5d50;
-    --color-primary-hover: #234840;
-    --color-background: #f7f4ef;
-    --color-surface: #ffffff;
-    --color-text: #1f1f1f;
-    --color-text-muted: #5a5a5a;
-    --color-accent: #d99a3d;
-    --color-accent-hover: #c0852b;
-    --color-border: #d1cdc4;
-    --color-status-open: #2f5d50;
-    --color-status-construction: #8a6200;
-    --color-status-open-bg: #e0f0ec;
-    --color-status-construction-bg: #fef3d0;
+  color-scheme: light;
+
+  --seed-bg: #f8fafc;
+  --seed-surface: #ffffff;
+  --seed-text: #1e293b;
+  --seed-text-muted: #64748b;
+  --seed-accent: oklch(0.55 0.2 260);
+  --seed-accent-hover: color-mix(in oklch, var(--seed-accent) 80%, black);
+  --seed-border: #e2e8f0;
+  --seed-border-strong: #cbd5e1;
+
+  --accent-200: color-mix(in oklch, var(--seed-accent) 30%, white);
+  --accent-300: color-mix(in oklch, var(--seed-accent) 50%, white);
+  --accent-400: color-mix(in oklch, var(--seed-accent) 75%, white);
+  --accent-500: var(--seed-accent);
+  --accent-600: color-mix(in oklch, var(--seed-accent) 80%, black);
+  --accent-700: color-mix(in oklch, var(--seed-accent) 60%, black);
+  --accent-800: color-mix(in oklch, var(--seed-accent) 40%, black);
+}
+
+html:has(input[name="theme-preference"][value="dark"]:checked) {
+  color-scheme: dark;
+}
+
+@media (prefers-color-scheme: dark) {
+  html:has(input[name="theme-preference"][value="system"]:checked) {
+    color-scheme: dark;
+  }
+}
+
+:root,
+html {
+  --color-bg: light-dark(var(--seed-bg), oklch(0.18 0.02 260));
+  --color-surface: light-dark(var(--seed-surface), oklch(0.22 0.03 260));
+  --color-text: light-dark(var(--seed-text), oklch(0.9 0.02 260));
+  --color-text-muted: light-dark(var(--seed-text-muted), oklch(0.72 0.03 260));
+
+  --color-primary: light-dark(var(--seed-accent), oklch(0.68 0.18 260));
+  --color-primary-hover: light-dark(var(--seed-accent-hover), oklch(0.76 0.18 260));
+  --color-accent: light-dark(var(--seed-accent), oklch(0.7 0.16 260));
+  --color-accent-hover: light-dark(var(--seed-accent-hover), oklch(0.78 0.18 260));
+
+  --color-link: var(--color-primary);
+  --color-link-hover: var(--color-primary-hover);
+
+  --color-border: light-dark(var(--seed-border), oklch(0.34 0.02 260));
+  --color-border-strong: light-dark(var(--seed-border-strong), oklch(0.42 0.02 260));
+
+  --header-bg: var(--color-primary);
+  --header-text: light-dark(#ffffff, #f8fafc);
+
+  --theme-toggle-bg: color-mix(in srgb, var(--header-text) 20%, var(--header-bg));
+  --theme-toggle-border: color-mix(in srgb, var(--header-text) 40%, var(--header-bg));
+  --theme-toggle-bg-hover: color-mix(in srgb, var(--header-text) 30%, var(--header-bg));
+  --theme-toggle-border-hover: color-mix(in srgb, var(--header-text) 55%, var(--header-bg));
+
+  --shadow-color: light-dark(rgb(0 0 0 / 0.09), rgb(0 0 0 / 0.28));
+  --shadow-card: 0 2px 8px var(--shadow-color);
+  --shadow-card-hover: 0 8px 24px var(--shadow-color);
+
+  accent-color: var(--color-accent);
 }
