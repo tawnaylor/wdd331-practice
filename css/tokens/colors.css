@@ -2,13 +2,54 @@
    These values are extracted from the custom properties
    and layered-components assignments and unified here. */
 :root {
-    --color-bg: #0f172a;
-    --color-surface: #1e293b;
-    --color-primary: #6366f1;
-    --color-primary-hover: #4f46e5;
-    --color-accent: #f59e0b;
-    --color-accent-hover: #d97706;
-    --color-text: #f1f5f9;
-    --color-text-muted: #94a3b8;
-    --color-border: #334155;
+    --seed-bg-light: #f8fafc;
+    --seed-surface-light: #ffffff;
+    --seed-text-light: #1e293b;
+    --seed-text-muted-light: #64748b;
+    --seed-border-light: #e2e8f0;
+
+    --seed-bg-dark: #0f172a;
+    --seed-surface-dark: #1e293b;
+    --seed-text-dark: #f1f5f9;
+    --seed-text-muted-dark: #94a3b8;
+    --seed-border-dark: #334155;
+
+    --seed-accent: #6366f1;
+    --seed-accent-hover: #4f46e5;
+    --seed-highlight: #f59e0b;
+    --seed-highlight-hover: #d97706;
+}
+
+html {
+    color-scheme: light;
+
+    --color-bg: var(--seed-bg-light);
+    --color-surface: var(--seed-surface-light);
+    --color-primary: var(--seed-accent);
+    --color-primary-hover: var(--seed-accent-hover);
+    --color-accent: var(--seed-highlight);
+    --color-accent-hover: var(--seed-highlight-hover);
+    --color-text: var(--seed-text-light);
+    --color-text-muted: var(--seed-text-muted-light);
+    --color-border: var(--seed-border-light);
+
+    --header-bg: var(--color-surface);
+    --header-text: var(--color-text);
+    --theme-toggle-bg: color-mix(in srgb, var(--header-bg) 88%, var(--color-text));
+    --theme-toggle-border: color-mix(in srgb, var(--header-bg) 72%, var(--color-text));
+    --theme-toggle-bg-hover: color-mix(in srgb, var(--header-bg) 80%, var(--color-text));
+    --theme-toggle-border-hover: color-mix(in srgb, var(--header-bg) 58%, var(--color-text));
+}
+
+html[data-theme="dark"] {
+    color-scheme: dark;
+
+    --color-bg: var(--seed-bg-dark);
+    --color-surface: var(--seed-surface-dark);
+    --color-text: var(--seed-text-dark);
+    --color-text-muted: var(--seed-text-muted-dark);
+    --color-border: var(--seed-border-dark);
+
+    --header-bg: color-mix(in srgb, var(--color-surface) 78%, black);
+    --header-text: var(--color-text);
 }

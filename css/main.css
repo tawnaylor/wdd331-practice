@@ -15,6 +15,7 @@
 /* Components */
 @import "components/nav.css" layer(components);
 @import "components/cards.css" layer(components);
+@import "components/theme-toggle.css" layer(components);
 
 /* Utilities */
 @import "utilities/utilities.css" layer(utilities);
