@@ -19,6 +19,14 @@
   --accent-800: color-mix(in oklch, var(--seed-accent) 40%, black);
 }
 
+html[data-theme="light"] {
+  color-scheme: light;
+}
+
+html[data-theme="dark"] {
+  color-scheme: dark;
+}
+
 html:has(input[name="theme-preference"][value="dark"]:checked) {
   color-scheme: dark;
 }

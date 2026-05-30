@@ -1,17 +1,20 @@
-/* ========================================
-   TOKENS
-   Define your design decisions here.
-   Everything else in this file should
-   reference these tokens with var().
-   ======================================== */
+
 :root {
-    --color-background: #101827;
-    --color-surface: #1f2a44;
-    --color-primary: #8be9fd;
-    --color-accent: #ffb86c;
-    --color-text: #f8f8f2;
-    --color-muted: #b8c0d9;
-    --color-border: #3a4563;
+    color-scheme: light;
+
+    --color-background: #f4f7fb;
+    --color-surface: #ffffff;
+    --color-primary: #2563eb;
+    --color-accent: #d97706;
+    --color-text: #172033;
+    --color-muted: #52607a;
+    --color-border: #cfd8e6;
+    --color-card-background: var(--color-surface);
+
+    --gradient-glow: rgb(96 165 250 / 0.28);
+    --gradient-backdrop: #e8eef8;
+    --card-shadow: 0 1rem 2rem rgb(15 23 42 / 0.12);
+    --card-shadow-hover: 0 1.5rem 3rem rgb(15 23 42 / 0.18);
 
     --space-sm: 0.5rem;
     --space-md: 1rem;
@@ -26,10 +29,25 @@
     --radius-pill: 999px;
 }
 
-/* ========================================
-   RESET
-   A minimal reset so you start clean.
-   ======================================== */
+html[data-theme="dark"] {
+    color-scheme: dark;
+
+    --color-background: #101827;
+    --color-surface: #1f2a44;
+    --color-primary: #8be9fd;
+    --color-accent: #ffb86c;
+    --color-text: #f8f8f2;
+    --color-muted: #b8c0d9;
+    --color-border: #3a4563;
+    --color-card-background: var(--color-surface);
+
+    --gradient-glow: rgb(49 71 109 / 0.9);
+    --gradient-backdrop: #080c16;
+    --card-shadow: 0 1rem 2rem rgb(0 0 0 / 0.25);
+    --card-shadow-hover: 0 1.5rem 3rem rgb(0 0 0 / 0.35);
+}
+
+
 *,
 *::before,
 *::after {
@@ -51,8 +69,8 @@ body {
     line-height: 1.6;
     padding: clamp(1rem, 4vw, var(--space-xl));
     background:
-        radial-gradient(circle at top left, #31476d, transparent 35%),
-        linear-gradient(135deg, var(--color-background), #080c16);
+        radial-gradient(circle at top left, var(--gradient-glow), transparent 35%),
+        linear-gradient(135deg, var(--color-background), var(--gradient-backdrop));
 
     a {
         color: var(--color-primary);
@@ -138,7 +156,7 @@ body {
     padding: clamp(1rem, 3vw, var(--space-lg));
     border: 1px solid var(--color-border);
     border-radius: var(--radius-card);
-    box-shadow: 0 1rem 2rem rgb(0 0 0 / 0.25);
+    box-shadow: var(--card-shadow);
     transition: transform 0.25s ease, box-shadow 0.25s ease;
 
     .card-tag {
@@ -189,14 +207,11 @@ body {
 
     &:hover {
         transform: translateY(-0.35rem);
-        box-shadow: 0 1.5rem 3rem rgb(0 0 0 / 0.35);
+        box-shadow: var(--card-shadow-hover);
     }
 }
 
-/* ========================================
-   FOOTER
-   Style the .board-footer at the bottom.
-   ======================================== */
+
 .board-footer {
     margin-top: var(--space-xl);
     padding-top: var(--space-lg);

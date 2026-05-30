@@ -1,0 +1,26 @@
+:root {
+
+    color-scheme: light;
+
+    --surface: light-dark(
+        rgba(255,255,255,.92),
+        rgba(32,32,32,.92)
+    );
+
+    --shadow-sm:
+        0 2px 4px rgba(0,0,0,.10),
+        0 4px 8px rgba(0,0,0,.08);
+
+    --shadow-md:
+        0 4px 10px rgba(0,0,0,.15),
+        0 10px 20px rgba(0,0,0,.12);
+
+    --shadow-lg:
+        0 8px 20px rgba(0,0,0,.18),
+        0 16px 30px rgba(0,0,0,.15);
+
+}
+
+html[data-theme="dark"] {
+    color-scheme: dark;
+}
