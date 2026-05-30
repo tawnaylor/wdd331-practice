@@ -1,0 +1,336 @@
+.effects-page {
+    display: grid;
+    gap: var(--space-xl);
+}
+
+.effects-intro {
+    display: grid;
+    gap: var(--space-sm);
+    justify-items: start;
+}
+
+.effects-kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-xs);
+    padding: 0.35rem 0.85rem;
+    border-radius: var(--radius-pill);
+    background: color-mix(in srgb, var(--color-primary) 14%, var(--color-surface));
+    color: var(--color-primary);
+    font-size: var(--font-size-sm);
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.effects-page :is(.effects-intro h1, .effects-section-title) {
+    color: var(--color-text);
+}
+
+.effects-lede {
+    max-width: 62ch;
+    margin: 0;
+    font-size: 1.05rem;
+}
+
+.effects-hero {
+    position: relative;
+    min-height: clamp(22rem, 55vw, 34rem);
+    border-radius: calc(var(--radius-lg) + 0.25rem);
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+    isolation: isolate;
+}
+
+.effects-hero img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.effects-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(circle at 18% 20%, rgb(255 255 255 / 0.32), transparent 38%),
+        linear-gradient(135deg, rgb(15 23 42 / 0.12), rgb(15 23 42 / 0.7));
+    z-index: 1;
+}
+
+.effects-hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgb(15 23 42 / 0.72), transparent 55%);
+    mix-blend-mode: multiply;
+    z-index: 1;
+}
+
+.effects-hero-content {
+    position: absolute;
+    inset: auto 0 0;
+    z-index: 2;
+    padding: clamp(1.5rem, 4vw, 3rem);
+    color: white;
+}
+
+.effects-hero-content h2 {
+    margin-bottom: var(--space-xs);
+    color: white;
+    text-shadow: var(--text-shadow-hero);
+}
+
+.effects-hero-content p {
+    max-width: 42ch;
+    margin: 0;
+    color: rgb(255 255 255 / 0.86);
+}
+
+html[data-theme="dark"] .effects-hero::before {
+    background:
+        radial-gradient(circle at 18% 20%, rgb(99 102 241 / 0.24), transparent 36%),
+        linear-gradient(135deg, rgb(15 23 42 / 0.2), rgb(2 6 23 / 0.82));
+}
+
+.effects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+    gap: var(--space-lg);
+}
+
+.effect-card {
+    display: grid;
+    grid-template-rows: auto 1fr;
+    overflow: hidden;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    background:
+        linear-gradient(180deg, color-mix(in srgb, white 18%, transparent), transparent 26%),
+        var(--color-surface);
+    box-shadow: var(--shadow-md);
+    transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base);
+}
+
+.effect-card:hover {
+    transform: translateY(-0.45rem);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--color-primary);
+}
+
+.effect-card figure {
+    margin: 0;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+}
+
+.effect-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transform: scale(1.01);
+    transition: transform 280ms ease, filter 280ms ease;
+}
+
+.effect-card:hover img {
+    transform: scale(1.05);
+}
+
+.effect-card--filtered img {
+    filter: grayscale(1) sepia(0.28) brightness(0.92);
+}
+
+.effect-card--filtered:hover img {
+    filter: grayscale(0.08) sepia(0) brightness(1.02);
+}
+
+.effect-card-body {
+    display: grid;
+    gap: var(--space-sm);
+    padding: var(--space-lg);
+}
+
+.effect-card-body h3 {
+    margin-bottom: 0;
+    color: var(--color-text);
+}
+
+.effect-card-body p {
+    margin-bottom: 0;
+}
+
+.glass-showcase {
+    position: relative;
+    min-height: clamp(20rem, 48vw, 28rem);
+    border-radius: calc(var(--radius-lg) + 0.25rem);
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+    display: grid;
+    place-items: center;
+}
+
+.glass-showcase > img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.glass-showcase::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgb(15 23 42 / 0.06), rgb(15 23 42 / 0.26));
+}
+
+.glass-panel {
+    position: relative;
+    z-index: 1;
+    width: min(38rem, calc(100% - 2rem));
+    padding: clamp(1.5rem, 4vw, 2.25rem);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-lg);
+    background: var(--glass-surface);
+    box-shadow: var(--shadow-md);
+    -webkit-backdrop-filter: blur(18px) saturate(155%);
+    backdrop-filter: blur(18px) saturate(155%);
+}
+
+.glass-panel h3 {
+    color: var(--color-text);
+}
+
+.glass-panel p {
+    margin-bottom: 0;
+    color: var(--color-text-muted);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .glass-panel {
+        background: light-dark(rgb(255 255 255 / 0.96), rgb(15 23 42 / 0.94));
+        -webkit-backdrop-filter: none;
+        backdrop-filter: none;
+    }
+
+    .effect-card,
+    .effect-card img,
+    .icon-strip img,
+    .topic-blend {
+        transition: none;
+    }
+}
+
+.icon-showcase {
+    display: grid;
+    gap: var(--space-md);
+}
+
+.icon-strip {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: clamp(1rem, 3vw, 2rem);
+    padding: clamp(1rem, 3vw, 1.5rem);
+    border-radius: var(--radius-lg);
+    background:
+        linear-gradient(135deg, color-mix(in srgb, var(--color-primary) 9%, var(--color-surface)), transparent 70%),
+        color-mix(in srgb, var(--color-surface) 94%, var(--color-bg));
+    border: 1px solid var(--color-border);
+    box-shadow: var(--shadow-sm);
+}
+
+.icon-strip img {
+    width: clamp(3rem, 10vw, 4.25rem);
+    aspect-ratio: 1;
+    color: var(--color-text);
+    filter:
+        drop-shadow(0 1px 0 color-mix(in srgb, var(--color-surface) 80%, transparent))
+        drop-shadow(0 8px 10px var(--icon-shadow))
+        drop-shadow(0 0 10px color-mix(in srgb, currentColor 12%, transparent));
+    transition: transform var(--transition-base), filter var(--transition-base);
+}
+
+.icon-strip img:hover {
+    transform: translateY(-0.3rem) scale(1.06);
+    filter:
+        drop-shadow(0 1px 0 color-mix(in srgb, var(--color-surface) 88%, transparent))
+        drop-shadow(0 12px 18px var(--icon-shadow))
+        drop-shadow(0 0 14px color-mix(in srgb, currentColor 18%, transparent));
+}
+
+.topic-showcase {
+    display: grid;
+    gap: var(--space-md);
+}
+
+.topic-blend {
+    position: relative;
+    min-height: clamp(18rem, 44vw, 24rem);
+    display: grid;
+    align-items: end;
+    padding: clamp(1.25rem, 4vw, 2rem);
+    border-radius: calc(var(--radius-lg) + 0.25rem);
+    overflow: hidden;
+    color: white;
+    background:
+        radial-gradient(circle at 20% 25%, rgb(245 158 11 / 0.8), transparent 28%),
+        radial-gradient(circle at 78% 20%, rgb(99 102 241 / 0.8), transparent 30%),
+        linear-gradient(135deg, rgb(15 23 42), rgb(30 41 59) 54%, rgb(12 74 110));
+    box-shadow: var(--shadow-lg);
+}
+
+.topic-blend::before,
+.topic-blend::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+}
+
+.topic-blend::before {
+    background:
+        linear-gradient(115deg, rgb(255 255 255 / 0.06) 0 35%, transparent 35% 100%),
+        repeating-linear-gradient(90deg, rgb(255 255 255 / 0.08) 0 2px, transparent 2px 34px);
+    mix-blend-mode: screen;
+}
+
+.topic-blend::after {
+    clip-path: polygon(0 64%, 100% 38%, 100% 100%, 0 100%);
+    background: linear-gradient(135deg, rgb(15 23 42 / 0.08), rgb(255 255 255 / 0.18));
+    -webkit-backdrop-filter: blur(2px);
+    backdrop-filter: blur(2px);
+}
+
+.topic-blend-copy {
+    position: relative;
+    z-index: 1;
+    max-width: 34rem;
+}
+
+.topic-blend-copy h3 {
+    color: white;
+}
+
+.topic-blend-copy p {
+    margin-bottom: 0;
+    color: rgb(255 255 255 / 0.8);
+}
+
+@media (max-width: 40rem) {
+    .effects-page {
+        gap: var(--space-lg);
+    }
+
+    .effects-grid {
+        gap: var(--space-md);
+    }
+
+    .effects-hero-content,
+    .effect-card-body,
+    .glass-panel,
+    .topic-blend {
+        padding: var(--space-md);
+    }
+}

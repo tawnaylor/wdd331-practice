@@ -20,11 +20,29 @@
     /* Borders & Radius */
     --radius-sm: 6px;
     --radius-md: 12px;
+    --radius-lg: 24px;
     --radius-pill: 999px;
 
     /* Shadows */
-    --shadow-card: 0 2px 8px rgba(0, 0, 0, 0.3);
-    --shadow-card-hover: 0 8px 24px rgba(0, 0, 0, 0.5);
+    --shadow-color: light-dark(rgb(15 23 42 / 0.12), rgb(2 6 23 / 0.34));
+    --shadow-color-strong: light-dark(rgb(15 23 42 / 0.18), rgb(2 6 23 / 0.5));
+    --shadow-sm:
+        0 1px 2px rgb(15 23 42 / 0.07),
+        0 8px 18px -12px var(--shadow-color);
+    --shadow-md:
+        0 2px 6px rgb(15 23 42 / 0.09),
+        0 18px 36px -20px var(--shadow-color),
+        0 28px 52px -36px var(--shadow-color-strong);
+    --shadow-lg:
+        0 4px 10px rgb(15 23 42 / 0.1),
+        0 26px 44px -24px var(--shadow-color),
+        0 38px 70px -38px var(--shadow-color-strong);
+    --shadow-card: var(--shadow-sm);
+    --shadow-card-hover: var(--shadow-md);
+    --text-shadow-hero: 0 3px 18px rgb(15 23 42 / 0.55);
+    --glass-surface: light-dark(rgb(255 255 255 / 0.62), rgb(15 23 42 / 0.48));
+    --glass-border: light-dark(rgb(255 255 255 / 0.52), rgb(148 163 184 / 0.2));
+    --icon-shadow: light-dark(rgb(15 23 42 / 0.22), rgb(226 232 240 / 0.18));
 
     /* Transitions */
     --transition-base: 200ms ease;
