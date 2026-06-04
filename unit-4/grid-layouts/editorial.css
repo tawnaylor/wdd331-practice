@@ -1,0 +1,177 @@
+/* ============================================================
+   editorial.css - Editorial article layout
+   ============================================================ */
+
+/* ----------------------------------------------------------
+   Page header
+   ---------------------------------------------------------- */
+.editorial-page header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  border-bottom: 1px solid var(--color-border, #e2e8f0);
+  gap: 1rem;
+}
+
+.editorial-page header a:first-child {
+  font-weight: 700;
+  font-size: 1.1rem;
+  text-decoration: none;
+  color: var(--color-text, inherit);
+}
+
+/* Nav links in one row - Flexbox: content-driven, single-axis, no track math needed */
+.editorial-page header nav {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.editorial-page header nav a {
+  text-decoration: none;
+  font-size: 0.95rem;
+  color: var(--color-text-muted, #64748b);
+  transition: color 0.2s;
+}
+
+.editorial-page header nav a:hover {
+  color: var(--color-text, inherit);
+}
+
+/* ----------------------------------------------------------
+   Grid layout - single column mobile first
+   ---------------------------------------------------------- */
+.editorial-page .layout {
+  display: grid;
+  grid-template-areas:
+    "main"
+    "sidebar";
+  gap: 2rem;
+  max-width: 1100px;
+  margin: 2.5rem auto;
+  padding: 0 1.25rem;
+}
+
+/* Two-column layout at 720px and above */
+@media (min-width: 720px) {
+  .editorial-page .layout {
+    grid-template-areas: "main sidebar";
+    grid-template-columns: 1fr 280px;
+    align-items: start;
+  }
+}
+
+/* ----------------------------------------------------------
+   Main content
+   ---------------------------------------------------------- */
+.editorial-page main {
+  grid-area: main;
+}
+
+.editorial-page article h1 {
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
+  line-height: 1.2;
+  margin-bottom: 0.4rem;
+}
+
+.editorial-page .byline {
+  font-size: 0.875rem;
+  color: var(--color-text-muted, #64748b);
+  margin-bottom: 1.5rem;
+}
+
+.editorial-page article h2 {
+  font-size: 1.25rem;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+.editorial-page article p {
+  line-height: 1.75;
+  margin-bottom: 1rem;
+}
+
+.editorial-page blockquote {
+  border-left: 3px solid var(--color-accent, #3b82f6);
+  margin: 1.5rem 0;
+  padding: 0.75rem 1.25rem;
+  background: var(--color-surface-alt, #f8fafc);
+  border-radius: 0 0.4rem 0.4rem 0;
+}
+
+.editorial-page blockquote p {
+  margin: 0;
+  font-style: italic;
+  color: var(--color-text-muted, #475569);
+}
+
+/* ----------------------------------------------------------
+   Sidebar
+   ---------------------------------------------------------- */
+.editorial-page aside {
+  grid-area: sidebar;
+}
+
+.editorial-page aside section {
+  margin-bottom: 2rem;
+}
+
+.editorial-page aside h2 {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-muted, #64748b);
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid var(--color-border, #e2e8f0);
+}
+
+.editorial-page aside ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.editorial-page aside ul li {
+  padding: 0.35rem 0;
+  font-size: 0.9rem;
+}
+
+.editorial-page aside ul li a {
+  text-decoration: none;
+  color: var(--color-text, inherit);
+  transition: color 0.2s;
+}
+
+.editorial-page aside ul li a:hover {
+  color: var(--color-accent, #3b82f6);
+}
+
+/* Tags */
+.editorial-page .tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.editorial-page .tags li {
+  background: var(--color-surface-alt, #f1f5f9);
+  border-radius: 999px;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.8rem;
+  color: var(--color-text-muted, #475569);
+}
+
+/* ----------------------------------------------------------
+   Footer
+   ---------------------------------------------------------- */
+.editorial-page footer {
+  text-align: center;
+  padding: 2rem 1rem;
+  font-size: 0.85rem;
+  color: var(--color-text-muted, #94a3b8);
+  border-top: 1px solid var(--color-border, #e2e8f0);
+  margin-top: 3rem;
+}
