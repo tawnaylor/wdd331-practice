@@ -1,134 +1,131 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Visual Effects</title>
-    <script src="../../js/theme-preference.js"></script>
+    <title>Visual Effects – Practice Site</title>
     <link rel="stylesheet" href="../../dist/styles.css">
 </head>
 <body>
-    <nav class="site-nav">
-        <a href="../../index.html" class="nav-brand">Taw Naylor</a>
-        <ul>
-            <li><a href="../../index.html">Home</a></li>
-            <li><a href="../../unit-2/layered-components/index.html">Gallery</a></li>
-            <li><a href="index.html" aria-current="page">Effects</a></li>
-            <li><a href="../../index.html#about">About</a></li>
-        </ul>
 
-        <details class="theme-menu">
-            <summary class="theme-control">
-                <span class="visually-hidden">Color scheme</span>
-            </summary>
+<nav class="site-nav">
+    <a href="../../index.html">&larr; Home</a>
+    <ul>
+        <li><a href="#">Gallery</a></li>
+        <li><a href="#" aria-current="page">Effects</a></li>
+        <li><a href="#">About</a></li>
+    </ul>
+</nav>
 
-            <div class="theme-extra" role="group" aria-label="Choose color scheme">
-                <label class="theme-control theme-pick" data-theme-pick="light">
-                    <input name="theme-preference" type="radio" value="light">
-                    <span aria-hidden="true">&#9788;&#65039;</span>
-                    <span class="visually-hidden">Light</span>
-                </label>
+<!-- HERO: Use a gradient overlay and text-shadow for depth -->
+<header class="hero">
+    <img
+        class="hero-image"
+        src="https://picsum.photos/seed/hero-effects/1200/500"
+        alt="Landscape placeholder for hero section"
+    >
+    <div class="hero-content">
+        <h1>Visual Effects Showcase</h1>
+        <p>Shadows, gradients, and filters working together.</p>
+    </div>
+</header>
 
-                <label class="theme-control theme-pick" data-theme-pick="system">
-                    <input name="theme-preference" type="radio" value="system" checked>
-                    <span aria-hidden="true">&#9881;&#65039;</span>
-                    <span class="visually-hidden">System default</span>
-                </label>
-
-                <label class="theme-control theme-pick" data-theme-pick="dark">
-                    <input name="theme-preference" type="radio" value="dark">
-                    <span aria-hidden="true">&#127766;</span>
-                    <span class="visually-hidden">Dark</span>
-                </label>
-            </div>
-        </details>
-    </nav>
-
-    <main>
-        <div class="effects-page">
-            <section class="effects-intro" aria-labelledby="effects-page-title">
-                <span class="effects-kicker">Visual Effects</span>
-                <h1 id="effects-page-title">Visual depth with gradients, shadows, and filters</h1>
-                <p class="effects-lede">This page layers elevation, frosted glass, image treatments, and blend-mode overlays on top of the existing theme tokens so the effects stay intentional in both light and dark mode.</p>
-            </section>
-
-            <section class="effects-hero" aria-labelledby="hero-title">
-                <img src="https://picsum.photos/seed/hero-effects/1200/500" alt="Landscape placeholder for hero section">
-                <div class="effects-hero-content">
-                    <h2 id="hero-title">Visual Effects Showcase</h2>
-                    <p>Shadows, gradients, and filters working together.</p>
+<main>
+    <!-- CARDS: Elevation shadows, hover transitions -->
+    <section class="card-section">
+        <h2>Elevation Cards</h2>
+        <div class="cards">
+            <article class="card">
+                <img
+                    class="card-image"
+                    src="https://picsum.photos/seed/card-1/400/250"
+                    alt="Placeholder image"
+                >
+                <div class="card-body">
+                    <h3>Layered Shadows</h3>
+                    <p>Multiple shadow layers create realistic depth that changes on hover.</p>
                 </div>
-            </section>
-
-            <section aria-labelledby="cards-title">
-                <h2 class="effects-section-title" id="cards-title">Elevation Cards</h2>
-                <div class="effects-grid">
-                    <article class="effect-card">
-                        <figure>
-                            <img src="https://picsum.photos/seed/card-1/400/250" alt="Placeholder image">
-                        </figure>
-                        <div class="effect-card-body">
-                            <h3>Layered Shadows</h3>
-                            <p>Multiple shadow layers create realistic depth that changes on hover.</p>
-                        </div>
-                    </article>
-
-                    <article class="effect-card">
-                        <figure>
-                            <img src="https://picsum.photos/seed/card-2/400/250" alt="Placeholder image">
-                        </figure>
-                        <div class="effect-card-body">
-                            <h3>Gradient Surfaces</h3>
-                            <p>A subtle gradient on the card background adds dimension without distracting from content.</p>
-                        </div>
-                    </article>
-
-                    <article class="effect-card effect-card--filtered">
-                        <figure>
-                            <img src="https://picsum.photos/seed/card-3/400/250" alt="Placeholder image">
-                        </figure>
-                        <div class="effect-card-body">
-                            <h3>Filtered Images</h3>
-                            <p>A grayscale and sepia treatment lifts on hover so the active card draws more attention.</p>
-                        </div>
-                    </article>
+            </article>
+            <article class="card">
+                <img
+                    class="card-image"
+                    src="https://picsum.photos/seed/card-2/400/250"
+                    alt="Placeholder image"
+                >
+                <div class="card-body">
+                    <h3>Gradient Surfaces</h3>
+                    <p>A subtle gradient on the card background adds dimension without distracting from content.</p>
                 </div>
-            </section>
-
-            <section class="glass-showcase" aria-labelledby="glass-title">
-                <img src="https://picsum.photos/seed/glass-bg/1200/400" alt="Background image behind glass panel">
-                <div class="glass-panel">
-                    <h2 id="glass-title">Frosted Glass</h2>
-                    <p>This panel uses backdrop-filter to blur and saturate the image behind it. The text stays sharp while the background softens into a frosted surface.</p>
+            </article>
+            <article class="card">
+                <img
+                    class="card-image"
+                    src="https://picsum.photos/seed/card-3/400/250"
+                    alt="Placeholder image"
+                >
+                <div class="card-body">
+                    <h3>Filtered Images</h3>
+                    <p>A grayscale filter on the image that lifts on hover draws attention to active cards.</p>
                 </div>
-            </section>
-
-            <section class="icon-showcase" aria-labelledby="icons-title">
-                <h2 class="effects-section-title" id="icons-title">Drop Shadow on Transparent Images</h2>
-                <p>These icons use drop-shadow() instead of box-shadow so the shadow follows the actual shape of each image rather than its bounding box.</p>
-                <div class="icon-strip">
-                    <img src="https://cdn.jsdelivr.net/npm/@tabler/icons@2.47.0/icons/heart.svg" alt="Heart icon">
-                    <img src="https://cdn.jsdelivr.net/npm/@tabler/icons@2.47.0/icons/star.svg" alt="Star icon">
-                    <img src="https://cdn.jsdelivr.net/npm/@tabler/icons@2.47.0/icons/bookmark.svg" alt="Bookmark icon">
-                    <img src="https://cdn.jsdelivr.net/npm/@tabler/icons@2.47.0/icons/message-circle.svg" alt="Message icon">
-                </div>
-            </section>
-
-            <section class="topic-showcase" aria-labelledby="topic-title">
-                <h2 class="effects-section-title" id="topic-title">Choose Topic Technique</h2>
-                <div class="topic-blend">
-                    <div class="topic-blend-copy">
-                        <h3>Blend modes with advanced gradients</h3>
-                        <p>This extra panel combines layered radial gradients with a screen blend overlay to create a luminous poster effect without extra image assets.</p>
-                    </div>
-                </div>
-            </section>
+            </article>
         </div>
-    </main>
+    </section>
 
-    <footer class="page-footer">
-        <p>&copy; 2026 My Practice Site</p>
-    </footer>
+    <!-- GLASS PANEL: backdrop-filter for frosted glass -->
+    <section class="glass-section">
+        <div class="glass-background">
+            <img
+                src="https://picsum.photos/seed/glass-bg/1200/400"
+                alt="Background image behind glass panel"
+                class="glass-bg-image"
+            >
+        </div>
+        <div class="glass-panel">
+            <h2>Frosted Glass</h2>
+            <p>
+                This panel uses backdrop-filter to blur and saturate the
+                image behind it. The text stays sharp while the background
+                softens into a frosted surface.
+            </p>
+        </div>
+    </section>
+
+    <!-- ICON ROW: drop-shadow on transparent images -->
+    <section class="icon-section">
+        <h2>Drop Shadow on Transparent Images</h2>
+        <p>
+            These icons use drop-shadow() instead of box-shadow so the shadow
+            follows the actual shape of each image rather than its bounding box.
+        </p>
+        <div class="icon-row">
+            <img class="icon-item" src="https://cdn.jsdelivr.net/npm/@tabler/icons@2.47.0/icons/heart.svg" alt="Heart icon">
+            <img class="icon-item" src="https://cdn.jsdelivr.net/npm/@tabler/icons@2.47.0/icons/star.svg" alt="Star icon">
+            <img class="icon-item" src="https://cdn.jsdelivr.net/npm/@tabler/icons@2.47.0/icons/bookmark.svg" alt="Bookmark icon">
+            <img class="icon-item" src="https://cdn.jsdelivr.net/npm/@tabler/icons@2.47.0/icons/message-circle.svg" alt="Message icon">
+        </div>
+    </section>
+
+    <!-- CHOOSE TOPIC: Advanced Gradients -->
+    <section class="gradient-section">
+        <h2>Advanced Gradients</h2>
+        <p>Conic, radial, and layered gradients used as decorative surfaces.</p>
+        <div class="gradient-gallery">
+            <div class="gradient-card gradient-card--conic">
+                <span>Conic Gradient</span>
+            </div>
+            <div class="gradient-card gradient-card--mesh">
+                <span>Layered Radial</span>
+            </div>
+            <div class="gradient-card gradient-card--angular">
+                <span>Angular Sweep</span>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer class="site-footer">
+    <p>&copy; 2026 My Practice Site</p>
+</footer>
 
 </body>
 </html>

@@ -1,321 +1,313 @@
-.effects-page {
-    display: grid;
-    gap: var(--space-xl);
-}
+/* ============================================================
+     effects.css - Visual Effects page styles
+     ============================================================ */
 
-.effects-intro {
-    display: grid;
-    gap: var(--space-sm);
-    justify-items: start;
-}
-
-.effects-kicker {
-    display: inline-flex;
-    align-items: center;
-    gap: var(--space-xs);
-    padding: 0.35rem 0.85rem;
-    border-radius: var(--radius-pill);
-    background: color-mix(in srgb, var(--color-primary) 14%, var(--color-surface));
-    color: var(--color-primary);
-    font-size: var(--font-size-sm);
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-}
-
-.effects-page :is(.effects-intro h1, .effects-section-title) {
-    color: var(--color-text);
-}
-
-.effects-lede {
-    max-width: 62ch;
-    margin: 0;
-    font-size: 1.05rem;
-}
-
-.effects-hero {
+/* ----------------------------------------------------------
+     Hero
+     ---------------------------------------------------------- */
+.hero {
     position: relative;
-    min-height: clamp(22rem, 55vw, 34rem);
-    border-radius: calc(var(--radius-lg) + 0.25rem);
     overflow: hidden;
-    box-shadow: var(--shadow-lg);
-    isolation: isolate;
+    min-height: 420px;
+    display: flex;
+    align-items: flex-end;
 }
 
-.effects-hero img {
+.hero-image {
+    position: absolute;
+    inset: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
-    display: block;
+    object-position: center;
+    z-index: 0;
 }
 
-.effects-hero::before {
+/* Gradient overlay: directional fade from bottom + vignette */
+.hero::after {
     content: "";
     position: absolute;
     inset: 0;
     background:
-        radial-gradient(circle at 18% 20%, rgb(255 255 255 / 0.32), transparent 38%),
-        linear-gradient(135deg, rgb(15 23 42 / 0.12), rgb(15 23 42 / 0.7));
+        radial-gradient(ellipse at center, transparent 40%, rgba(0, 0, 0, 0.45) 100%),
+        linear-gradient(to top, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0.1) 60%, transparent 100%);
     z-index: 1;
 }
 
-.effects-hero::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to top, rgb(15 23 42 / 0.72), transparent 55%);
-    mix-blend-mode: multiply;
-    z-index: 1;
+/* Dark mode: deepen the overlay */
+@media (prefers-color-scheme: dark) {
+    .hero::after {
+        background:
+            radial-gradient(ellipse at center, transparent 30%, rgba(0, 0, 0, 0.6) 100%),
+            linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.2) 60%, transparent 100%);
+    }
 }
 
-.effects-hero-content {
-    position: absolute;
-    inset: auto 0 0;
+.hero-content {
+    position: relative;
     z-index: 2;
-    padding: clamp(1.5rem, 4vw, 3rem);
-    color: white;
+    padding: 2.5rem 2rem;
+    color: #fff;
 }
 
-.effects-hero-content h2 {
-    margin-bottom: var(--space-xs);
-    color: white;
-    text-shadow: var(--text-shadow-hero);
+.hero-content h1 {
+    font-size: clamp(1.8rem, 5vw, 3rem);
+    margin: 0 0 0.5rem;
+    text-shadow:
+        0 2px 4px rgba(0, 0, 0, 0.6),
+        0 4px 16px rgba(0, 0, 0, 0.4);
 }
 
-.effects-hero-content p {
-    max-width: 42ch;
+.hero-content p {
+    font-size: 1.1rem;
     margin: 0;
-    color: rgb(255 255 255 / 0.86);
+    text-shadow: 0 1px 6px rgba(0, 0, 0, 0.7);
 }
 
-html[data-theme="dark"] .effects-hero::before {
-    background:
-        radial-gradient(circle at 18% 20%, rgb(99 102 241 / 0.24), transparent 36%),
-        linear-gradient(135deg, rgb(15 23 42 / 0.2), rgb(2 6 23 / 0.82));
+/* ----------------------------------------------------------
+     Card Section
+     ---------------------------------------------------------- */
+.card-section {
+    padding: 3rem 2rem;
 }
 
-.effects-grid {
+.card-section h2 {
+    margin-bottom: 1.5rem;
+}
+
+.cards {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
-    gap: var(--space-lg);
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
 }
 
-.effect-card {
-    display: grid;
-    grid-template-rows: auto 1fr;
+.card {
+    border-radius: 0.75rem;
     overflow: hidden;
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-lg);
-    background:
-        linear-gradient(180deg, color-mix(in srgb, white 18%, transparent), transparent 26%),
-        var(--color-surface);
-    box-shadow: var(--shadow-md);
-    transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base);
+    background: light-dark(
+        linear-gradient(160deg, #ffffff 0%, #f4f6f9 100%),
+        linear-gradient(160deg, #1e2330 0%, #161a24 100%)
+    );
+    box-shadow: var(--shadow-card);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
 
-.effect-card:hover {
-    transform: translateY(-0.45rem);
-    box-shadow: var(--shadow-lg);
-    border-color: var(--color-primary);
+.card:hover {
+    box-shadow: var(--shadow-raised);
+    transform: translateY(-4px);
 }
 
-.effect-card figure {
-    margin: 0;
-    aspect-ratio: 16 / 10;
-    overflow: hidden;
-}
-
-.effect-card img {
+.card-image {
     width: 100%;
-    height: 100%;
+    height: 180px;
     object-fit: cover;
     display: block;
-    transform: scale(1.01);
-    transition: transform 280ms ease, filter 280ms ease;
+    /* Card 3 gets the filter treatment via :nth-child */
+    filter: none;
+    transition: filter 0.35s ease;
 }
 
-.effect-card:hover img {
-    transform: scale(1.05);
+/* Third card: grayscale image that restores on hover */
+.card:nth-child(3) .card-image {
+    filter: grayscale(85%) brightness(0.9);
 }
 
-.effect-card--filtered img {
-    filter: grayscale(1) sepia(0.28) brightness(0.92);
+.card:nth-child(3):hover .card-image {
+    filter: grayscale(0%) brightness(1);
 }
 
-.effect-card--filtered:hover img {
-    filter: grayscale(0.08) sepia(0) brightness(1.02);
+.card-body {
+    padding: 1.25rem 1.5rem 1.5rem;
 }
 
-.effect-card-body {
-    display: grid;
-    gap: var(--space-sm);
-    padding: var(--space-lg);
+.card-body h3 {
+    margin: 0 0 0.5rem;
+    font-size: 1.1rem;
 }
 
-.effect-card-body h3 {
-    margin-bottom: 0;
-    color: var(--color-text);
+.card-body p {
+    margin: 0;
+    font-size: 0.92rem;
+    line-height: 1.6;
 }
 
-.effect-card-body p {
-    margin-bottom: 0;
-}
-
-.glass-showcase {
+/* ----------------------------------------------------------
+     Glass Section
+     ---------------------------------------------------------- */
+.glass-section {
     position: relative;
-    min-height: clamp(20rem, 48vw, 28rem);
-    border-radius: calc(var(--radius-lg) + 0.25rem);
+    min-height: 340px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
     overflow: hidden;
-    box-shadow: var(--shadow-lg);
-    display: grid;
-    place-items: center;
 }
 
-.glass-showcase > img {
+.glass-background {
     position: absolute;
     inset: 0;
+    z-index: 0;
+}
+
+.glass-bg-image {
     width: 100%;
     height: 100%;
     object-fit: cover;
-}
-
-.glass-showcase::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(135deg, rgb(15 23 42 / 0.06), rgb(15 23 42 / 0.26));
+    object-position: center;
 }
 
 .glass-panel {
     position: relative;
     z-index: 1;
-    width: min(38rem, calc(100% - 2rem));
-    padding: clamp(1.5rem, 4vw, 2.25rem);
-    border: 1px solid var(--glass-border);
-    border-radius: var(--radius-lg);
-    background: var(--glass-surface);
+    max-width: 560px;
+    padding: 2rem 2.5rem;
+    border-radius: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+
+    /* Frosted glass */
+    background: light-dark(
+        rgba(255, 255, 255, 0.35),
+        rgba(15, 18, 28, 0.45)
+    );
+    backdrop-filter: blur(14px) saturate(160%);
+    -webkit-backdrop-filter: blur(14px) saturate(160%);
     box-shadow: var(--shadow-md);
-    -webkit-backdrop-filter: blur(18px) saturate(155%);
-    backdrop-filter: blur(18px) saturate(155%);
+    color: light-dark(#111, #f0f0f0);
 }
 
-.glass-panel h3 {
-    color: var(--color-text);
+.glass-panel h2 {
+    margin-top: 0;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
 }
 
-.glass-panel p {
-    margin-bottom: 0;
-    color: var(--color-text-muted);
-}
-
+/* Reduced motion: swap blur for solid background */
 @media (prefers-reduced-motion: reduce) {
     .glass-panel {
-        background: light-dark(rgb(255 255 255 / 0.96), rgb(15 23 42 / 0.94));
-        -webkit-backdrop-filter: none;
         backdrop-filter: none;
-    }
-
-    .effect-card,
-    .effect-card img,
-    .icon-strip img,
-    .topic-blend {
-        transition: none;
+        -webkit-backdrop-filter: none;
+        background: light-dark(rgba(255, 255, 255, 0.9), rgba(15, 18, 28, 0.92));
     }
 }
 
-.icon-showcase {
-    display: grid;
-    gap: var(--space-md);
+/* ----------------------------------------------------------
+     Icon Section
+     ---------------------------------------------------------- */
+.icon-section {
+    padding: 3rem 2rem;
+    text-align: center;
 }
 
-.icon-strip {
+.icon-section h2 {
+    margin-bottom: 0.75rem;
+}
+
+.icon-section > p {
+    max-width: 560px;
+    margin: 0 auto 2rem;
+    font-size: 0.95rem;
+    line-height: 1.7;
+}
+
+.icon-row {
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
-    gap: clamp(1rem, 3vw, 2rem);
-    padding: clamp(1rem, 3vw, 1.5rem);
-    border-radius: var(--radius-lg);
-    background:
-        linear-gradient(135deg, color-mix(in srgb, var(--color-primary) 9%, var(--color-surface)), transparent 70%),
-        color-mix(in srgb, var(--color-surface) 94%, var(--color-bg));
-    border: 1px solid var(--color-border);
-    box-shadow: var(--shadow-sm);
+    align-items: center;
+    gap: 2.5rem;
+    flex-wrap: wrap;
 }
 
-.icon-strip img {
-    width: clamp(3rem, 10vw, 4.25rem);
-    aspect-ratio: 1;
-    color: var(--color-text);
+.icon-item {
+    width: 64px;
+    height: 64px;
+    /* Stacked drop-shadow for a thicker outlined effect */
     filter:
-        drop-shadow(0 1px 0 color-mix(in srgb, var(--color-surface) 80%, transparent))
-        drop-shadow(0 8px 10px var(--icon-shadow))
-        drop-shadow(0 0 10px color-mix(in srgb, currentColor 12%, transparent));
-    transition: transform var(--transition-base), filter var(--transition-base);
+        drop-shadow(0 0 2px currentColor)
+        drop-shadow(0 2px 6px rgba(0, 0, 0, 0.35))
+        drop-shadow(0 4px 12px rgba(0, 0, 0, 0.2));
+    transition: filter 0.25s ease, transform 0.25s ease;
 }
 
-.icon-strip img:hover {
-    transform: translateY(-0.3rem) scale(1.06);
+.icon-item:hover {
     filter:
-        drop-shadow(0 1px 0 color-mix(in srgb, var(--color-surface) 88%, transparent))
-        drop-shadow(0 12px 18px var(--icon-shadow))
-        drop-shadow(0 0 14px color-mix(in srgb, currentColor 18%, transparent));
+        drop-shadow(0 0 4px currentColor)
+        drop-shadow(0 4px 12px rgba(0, 0, 0, 0.5));
+    transform: scale(1.15);
 }
 
-.topic-showcase {
+/* ----------------------------------------------------------
+     Advanced Gradients (Choose Topic)
+     ---------------------------------------------------------- */
+.gradient-section {
+    padding: 3rem 2rem;
+}
+
+.gradient-section h2 {
+    margin-bottom: 0.5rem;
+}
+
+.gradient-section > p {
+    margin: 0 0 2rem;
+    font-size: 0.95rem;
+}
+
+.gradient-gallery {
     display: grid;
-    gap: var(--space-md);
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
 }
 
-.topic-blend {
-    position: relative;
-    min-height: clamp(18rem, 44vw, 24rem);
-    display: grid;
-    align-items: end;
-    padding: clamp(1.25rem, 4vw, 2rem);
-    border-radius: calc(var(--radius-lg) + 0.25rem);
-    overflow: hidden;
-    color: white;
+.gradient-card {
+    height: 180px;
+    border-radius: 0.75rem;
+    display: flex;
+    align-items: flex-end;
+    padding: 1rem 1.25rem;
+    box-shadow: var(--shadow-card);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gradient-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-raised);
+}
+
+.gradient-card span {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #fff;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+.gradient-card--conic {
+    background: conic-gradient(
+        from 180deg at 50% 50%,
+        #3b82f6 0deg,
+        #8b5cf6 120deg,
+        #ec4899 240deg,
+        #3b82f6 360deg
+    );
+}
+
+.gradient-card--mesh {
     background:
-        radial-gradient(circle at 20% 25%, rgb(245 158 11 / 0.8), transparent 28%),
-        radial-gradient(circle at 78% 20%, rgb(99 102 241 / 0.8), transparent 30%),
-        linear-gradient(135deg, rgb(15 23 42), rgb(30 41 59) 54%, rgb(12 74 110));
-    box-shadow: var(--shadow-lg);
+        radial-gradient(ellipse at 20% 20%, rgba(251, 191, 36, 0.7) 0%, transparent 55%),
+        radial-gradient(ellipse at 80% 80%, rgba(59, 130, 246, 0.7) 0%, transparent 55%),
+        radial-gradient(ellipse at 60% 30%, rgba(236, 72, 153, 0.5) 0%, transparent 50%),
+        #1e1b4b;
 }
 
-.topic-blend::before,
-.topic-blend::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-}
-
-.topic-blend::before {
-    background:
-        linear-gradient(115deg, rgb(255 255 255 / 0.06) 0 35%, transparent 35% 100%),
-        repeating-linear-gradient(90deg, rgb(255 255 255 / 0.08) 0 2px, transparent 2px 34px);
-    mix-blend-mode: screen;
-}
-
-.topic-blend::after {
-    clip-path: polygon(0 64%, 100% 38%, 100% 100%, 0 100%);
-    background: linear-gradient(135deg, rgb(15 23 42 / 0.08), rgb(255 255 255 / 0.18));
-    -webkit-backdrop-filter: blur(2px);
-    backdrop-filter: blur(2px);
-}
-
-.topic-blend-copy {
-    position: relative;
-    z-index: 1;
-    max-width: 34rem;
-}
-
-.topic-blend-copy h3 {
-    color: white;
-}
-
-.topic-blend-copy p {
-    margin-bottom: 0;
-    color: rgb(255 255 255 / 0.8);
+.gradient-card--angular {
+    background: linear-gradient(
+        135deg,
+        #0f172a 0%,
+        #1e3a5f 30%,
+        #0ea5e9 60%,
+        #38bdf8 80%,
+        #e0f2fe 100%
+    );
 }
 
 @media (max-width: 40rem) {
