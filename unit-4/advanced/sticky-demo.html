@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sticky Module Demo</title>
+    <script src="../../js/theme-preference.js"></script>
+    <link rel="stylesheet" href="../../dist/styles.css">
+    <link rel="stylesheet" href="sticky-demo.css">
+</head>
+<body>
+    <header class="page-header">
+        <h1>Sticky Module Demo</h1>
+        <p>
+            This page demonstrates a sticky table of contents. It also includes a CSS
+            comment explaining how overflow can break sticky positioning.
+        </p>
+        <a href="../../index.html">Back to Home</a>
+    </header>
+
+    <main class="sticky-layout">
+        <aside class="toc-area">
+            <nav class="table-of-contents" aria-labelledby="toc-title">
+                <h2 id="toc-title">Contents</h2>
+                <a href="#intro">Intro</a>
+                <a href="#layout">Layout</a>
+                <a href="#overflow-bug">Overflow Bug</a>
+                <a href="#summary">Summary</a>
+            </nav>
+        </aside>
+
+        <article class="article-content">
+            <section class="content-section" id="intro">
+                <h2>Intro</h2>
+                <p>
+                    Sticky positioning lets an element behave normally until it reaches a
+                    defined offset. Then it sticks in place while the surrounding content
+                    continues to scroll.
+                </p>
+                <p>
+                    This page is intentionally long so the sticky behavior is easy to test.
+                    The table of contents should remain visible as the reader moves down
+                    the page.
+                </p>
+            </section>
+
+            <section class="content-section" id="layout">
+                <h2>Layout</h2>
+                <p>
+                    The page uses a two-column layout. The left column contains the sticky
+                    navigation, and the right column contains the scrolling article
+                    sections.
+                </p>
+                <p>
+                    The sticky element includes position: sticky and top: 1rem. Without the
+                    top offset, sticky positioning would not visibly activate.
+                </p>
+            </section>
+
+            <section class="content-section" id="overflow-bug">
+                <h2>Overflow Bug</h2>
+                <p>
+                    Sticky positioning can break if an ancestor element has overflow:
+                    hidden, overflow: auto, or overflow: scroll. That ancestor can become
+                    the sticky element's scroll container.
+                </p>
+                <p>
+                    The CSS for this page includes a comment showing where that problem was
+                    tested and how it was fixed.
+                </p>
+            </section>
+
+            <section class="content-section" id="summary">
+                <h2>Summary</h2>
+                <p>
+                    Sticky modules are useful for table of contents menus, section labels,
+                    sidebars, comparison tools, and persistent page actions.
+                </p>
+                <p>
+                    This demo completes the sticky positioning requirement for the Unit 4
+                    advanced layout assignment.
+                </p>
+            </section>
+        </article>
+    </main>
+</body>
+</html>

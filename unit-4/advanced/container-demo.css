@@ -1,0 +1,112 @@
+/* ------------------------------
+   Container Query Demo
+-------------------------------- */
+
+.page-header {
+  max-width: 72rem;
+  margin-inline: auto;
+  padding: 2rem;
+}
+
+.page-header p {
+  max-width: 65ch;
+}
+
+.demo-layout {
+  max-width: 72rem;
+  margin-inline: auto;
+  padding: 2rem;
+
+  display: grid;
+  grid-template-columns: minmax(14rem, 18rem) 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+.demo-sidebar,
+.demo-main {
+  padding: 1rem;
+  border: 1px solid currentColor;
+  border-radius: 1rem;
+}
+
+/*
+  The container goes on the wrapper, not the component itself.
+  The feature card inside this wrapper can respond to the wrapper's width.
+*/
+.component-placement {
+  container-type: inline-size;
+  container-name: feature-placement;
+}
+
+.feature-card {
+  display: grid;
+  gap: 1rem;
+
+  padding: 1rem;
+  border: 1px solid currentColor;
+  border-radius: 1rem;
+}
+
+.feature-card__image {
+  min-height: 10rem;
+  border: 1px solid currentColor;
+  border-radius: 0.75rem;
+  background:
+    linear-gradient(135deg, rgb(0 0 0 / 0.08), rgb(0 0 0 / 0.22)),
+    radial-gradient(circle at top left, rgb(255 255 255 / 0.4), transparent 45%);
+}
+
+.feature-card__content {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.feature-card__content a {
+  justify-self: start;
+  padding: 0.65rem 1rem;
+  border: 1px solid currentColor;
+  border-radius: 999px;
+  text-decoration: none;
+}
+
+/*
+  Container query:
+  When the component's container becomes wide enough,
+  the same card changes from vertical to horizontal.
+*/
+@container feature-placement (min-width: 36rem) {
+  .feature-card {
+    grid-template-columns: 14rem 1fr;
+    align-items: center;
+  }
+
+  .feature-card__image {
+    min-height: 12rem;
+  }
+}
+
+/*
+  Second container query:
+  This creates a third state for extra-wide containers.
+*/
+@container feature-placement (min-width: 52rem) {
+  .feature-card {
+    grid-template-columns: 18rem 1fr;
+    padding: 1.5rem;
+  }
+
+  .feature-card__content {
+    font-size: 1.1rem;
+  }
+}
+
+/*
+  This media query only improves the overall page layout on small screens.
+  The component itself still responds through container queries.
+*/
+@media (max-width: 45rem) {
+  .demo-layout {
+    grid-template-columns: 1fr;
+  }
+}
