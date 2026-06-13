@@ -10,75 +10,104 @@
 </head>
 <body>
     <header class="page-header">
+        <p class="eyebrow">Unit 4 Advanced</p>
         <h1>Sticky Module Demo</h1>
         <p>
-            This page demonstrates a sticky table of contents. It also includes a CSS
-            comment explaining how overflow can break sticky positioning.
+            This page demonstrates a sticky trail guide sidebar. As the article
+            scrolls, the guide stays visible with a required sticky offset.
         </p>
         <a href="../../index.html">Back to Home</a>
     </header>
 
-    <main class="sticky-layout">
-        <aside class="toc-area">
-            <nav class="table-of-contents" aria-labelledby="toc-title">
-                <h2 id="toc-title">Contents</h2>
-                <a href="#intro">Intro</a>
-                <a href="#layout">Layout</a>
-                <a href="#overflow-bug">Overflow Bug</a>
-                <a href="#summary">Summary</a>
+    <main class="sticky-demo">
+        <aside class="guide-column">
+            <nav class="trail-guide" aria-labelledby="trail-guide-title">
+                <p class="trail-guide__label">Sticky Module</p>
+                <h2 id="trail-guide-title">Trail Guide</h2>
+
+                <ol>
+                    <li><a href="#overview">Overview</a></li>
+                    <li><a href="#packing">Packing</a></li>
+                    <li><a href="#weather">Weather</a></li>
+                    <li><a href="#safety">Safety</a></li>
+                    <li><a href="#wrap-up">Wrap Up</a></li>
+                </ol>
+
+                <p class="trail-guide__note">
+                    This box uses position: sticky and top: 1rem.
+                </p>
             </nav>
         </aside>
 
-        <article class="article-content">
-            <section class="content-section" id="intro">
-                <h2>Intro</h2>
+        <article class="article-flow">
+            <section class="article-section" id="overview">
+                <p class="section-kicker">Section 1</p>
+                <h2>Overview</h2>
                 <p>
-                    Sticky positioning lets an element behave normally until it reaches a
-                    defined offset. Then it sticks in place while the surrounding content
-                    continues to scroll.
+                    Sticky positioning is useful when a page has a helpful module that
+                    should stay available while the user scrolls. In this demo, the sticky
+                    module acts like a trail guide or table of contents.
                 </p>
                 <p>
-                    This page is intentionally long so the sticky behavior is easy to test.
-                    The table of contents should remain visible as the reader moves down
-                    the page.
-                </p>
-            </section>
-
-            <section class="content-section" id="layout">
-                <h2>Layout</h2>
-                <p>
-                    The page uses a two-column layout. The left column contains the sticky
-                    navigation, and the right column contains the scrolling article
-                    sections.
-                </p>
-                <p>
-                    The sticky element includes position: sticky and top: 1rem. Without the
-                    top offset, sticky positioning would not visibly activate.
+                    The content column is intentionally long so the sticky behavior is easy
+                    to see. Scroll down the page and watch the guide remain near the top of
+                    the viewport.
                 </p>
             </section>
 
-            <section class="content-section" id="overflow-bug">
-                <h2>Overflow Bug</h2>
+            <section class="article-section" id="packing">
+                <p class="section-kicker">Section 2</p>
+                <h2>Packing</h2>
                 <p>
-                    Sticky positioning can break if an ancestor element has overflow:
-                    hidden, overflow: auto, or overflow: scroll. That ancestor can become
-                    the sticky element's scroll container.
+                    A sticky sidebar can help readers keep track of where they are in a
+                    long guide. It works especially well for tutorials, product pages,
+                    documentation, and long articles.
                 </p>
                 <p>
-                    The CSS for this page includes a comment showing where that problem was
-                    tested and how it was fixed.
+                    The sticky element still belongs to the normal document flow. It only
+                    sticks after it reaches the offset value defined in CSS.
                 </p>
             </section>
 
-            <section class="content-section" id="summary">
-                <h2>Summary</h2>
+            <section class="article-section" id="weather">
+                <p class="section-kicker">Section 3</p>
+                <h2>Weather</h2>
                 <p>
-                    Sticky modules are useful for table of contents menus, section labels,
-                    sidebars, comparison tools, and persistent page actions.
+                    The required offset is important. If the sticky element does not have
+                    a property such as top, bottom, left, or right, then sticky positioning
+                    will not visibly activate.
                 </p>
                 <p>
-                    This demo completes the sticky positioning requirement for the Unit 4
-                    advanced layout assignment.
+                    In this demo, the offset is top: 1rem, which keeps the
+                    trail guide one rem below the top edge of the viewport.
+                </p>
+            </section>
+
+            <section class="article-section" id="safety">
+                <p class="section-kicker">Section 4</p>
+                <h2>Safety</h2>
+                <p>
+                    Sticky positioning can break when an ancestor element has overflow set
+                    to hidden, auto, or scroll. That overflow ancestor may become the
+                    sticky element's scroll container.
+                </p>
+                <p>
+                    The CSS includes a required comment explaining how the overflow problem
+                    was tested and fixed.
+                </p>
+            </section>
+
+            <section class="article-section" id="wrap-up">
+                <p class="section-kicker">Section 5</p>
+                <h2>Wrap Up</h2>
+                <p>
+                    This demo shows a practical sticky module that could be used on a real
+                    content page. The module stays available while the reader moves through
+                    the article.
+                </p>
+                <p>
+                    It also demonstrates the most common sticky troubleshooting issue:
+                    overflow applied to the wrong ancestor.
                 </p>
             </section>
         </article>

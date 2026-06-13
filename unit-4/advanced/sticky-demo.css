@@ -12,13 +12,21 @@
   max-width: 65ch;
 }
 
-.sticky-layout {
+.eyebrow,
+.section-kicker,
+.trail-guide__label {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 700;
+}
+
+.sticky-demo {
   max-width: 72rem;
   margin-inline: auto;
   padding: 2rem;
 
   display: grid;
-  grid-template-columns: 16rem 1fr;
+  grid-template-columns: minmax(14rem, 18rem) minmax(0, 1fr);
   gap: 2rem;
   align-items: start;
 }
@@ -26,61 +34,90 @@
 /*
   Sticky overflow bug test and fix:
 
-  I tested the common sticky bug by adding overflow: hidden to .toc-area.
-  That broke the sticky behavior because the ancestor between the sticky
-  element and the page scroll became an overflow container.
+  I deliberately tested the sticky bug by adding overflow: hidden to
+  .guide-column. That caused the sticky sidebar to stop behaving correctly
+  because the overflow ancestor sat between the sticky element and the main
+  page scroll container.
 
   Fix:
-  I removed overflow: hidden from .toc-area. To keep the rounded visual
-  style without clipping the sticky element's ancestor, I applied the border,
-  border-radius, and padding directly to .table-of-contents instead.
+  I removed overflow: hidden from .guide-column. Instead of clipping the
+  ancestor, the visual styling is placed directly on .trail-guide with border,
+  border-radius, and padding. This keeps the rounded card appearance without
+  breaking sticky positioning.
 */
-.toc-area {
+.guide-column {
   border-radius: 1rem;
 }
 
-.table-of-contents {
+.trail-guide {
   position: sticky;
   top: 1rem;
 
   display: grid;
-  gap: 0.75rem;
+  gap: 1rem;
 
   padding: 1rem;
   border: 1px solid currentColor;
   border-radius: 1rem;
 }
 
-.table-of-contents a {
+.trail-guide h2,
+.trail-guide p {
+  margin: 0;
+}
+
+.trail-guide ol {
+  display: grid;
+  gap: 0.65rem;
+  margin: 0;
+  padding-inline-start: 1.25rem;
+}
+
+.trail-guide a {
   text-decoration: none;
 }
 
-.table-of-contents a:hover {
+.trail-guide a:hover {
   text-decoration: underline;
 }
 
-.article-content {
+.trail-guide__note {
+  padding-block-start: 1rem;
+  border-block-start: 1px solid currentColor;
+  font-size: 0.9rem;
+}
+
+.article-flow {
   display: grid;
   gap: 2rem;
 }
 
-.content-section {
-  min-height: 75vh;
+.article-section {
+  min-height: 80vh;
+  display: grid;
+  align-content: start;
+  gap: 1rem;
+
   padding: 1.5rem;
   border: 1px solid currentColor;
   border-radius: 1rem;
 }
 
-.content-section p {
+.article-section h2,
+.article-section p {
+  margin: 0;
+}
+
+.article-section p {
   max-width: 65ch;
 }
 
-@media (max-width: 45rem) {
-  .sticky-layout {
+@media (max-width: 48rem) {
+  .sticky-demo {
     grid-template-columns: 1fr;
   }
 
-  .table-of-contents {
+  .trail-guide {
     position: static;
   }
 }
