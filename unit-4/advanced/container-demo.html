@@ -10,52 +10,86 @@
 </head>
 <body>
     <header class="page-header">
+        <p class="eyebrow">Unit 4 Advanced</p>
         <h1>Container Query Demo</h1>
         <p>
-            This page demonstrates a reusable component that changes layout based on
-            the size of its container instead of the size of the viewport.
+            This page uses the same product card component in two different containers.
+            The card changes based on the container size, not the browser width.
         </p>
         <a href="../../index.html">Back to Home</a>
     </header>
 
-    <main class="demo-layout">
-        <section class="demo-sidebar" aria-labelledby="narrow-placement-title">
-            <h2 id="narrow-placement-title">Narrow Placement</h2>
-
-            <div class="component-placement">
-                <article class="feature-card">
-                    <div class="feature-card__image" aria-hidden="true"></div>
-
-                    <div class="feature-card__content">
-                        <h3>Sidebar Card</h3>
-                        <p>
-                            This component is inside a narrow container, so it stays stacked
-                            vertically.
-                        </p>
-                        <a href="../../index.html">View Details</a>
-                    </div>
-                </article>
-            </div>
+    <main class="demo-page">
+        <section class="demo-explanation" aria-labelledby="notice-title">
+            <h2 id="notice-title">What to Notice</h2>
+            <p>
+                The sidebar card stays stacked because its container is narrow. The main
+                card becomes horizontal because its container is wider. This behavior is
+                controlled by @container, not a media query.
+            </p>
         </section>
 
-        <section class="demo-main" aria-labelledby="wide-placement-title">
-            <h2 id="wide-placement-title">Wide Placement</h2>
+        <div class="demo-layout">
+            <section class="narrow-panel" aria-labelledby="narrow-container-title">
+                <h2 id="narrow-container-title">Narrow Container</h2>
+                <p class="panel-note">Sidebar placement</p>
 
-            <div class="component-placement">
-                <article class="feature-card">
-                    <div class="feature-card__image" aria-hidden="true"></div>
+                <div class="product-container">
+                    <article class="product-card">
+                        <div class="product-card__image product-card__image--tent" aria-hidden="true">
+                            <span>Gear</span>
+                        </div>
 
-                    <div class="feature-card__content">
-                        <h3>Main Content Card</h3>
-                        <p>
-                            This is the exact same component, but it is placed inside a wider
-                            container. The layout changes because of a container query.
-                        </p>
-                        <a href="../../index.html">View Details</a>
-                    </div>
-                </article>
-            </div>
-        </section>
+                        <div class="product-card__content">
+                            <p class="product-card__category">Camping Kit</p>
+                            <h3>Trail Shelter Pack</h3>
+                            <p>
+                                A compact shelter kit designed for quick weekend trips and simple
+                                campsite setup.
+                            </p>
+
+                            <div class="product-card__meta" aria-label="Product features">
+                                <span>Lightweight</span>
+                                <span>2-person</span>
+                            </div>
+
+                            <a class="product-card__button" href="../../index.html">View Gear</a>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <section class="wide-panel" aria-labelledby="wide-container-title">
+                <h2 id="wide-container-title">Wide Container</h2>
+                <p class="panel-note">Main content placement</p>
+
+                <div class="product-container">
+                    <article class="product-card">
+                        <div class="product-card__image product-card__image--pack" aria-hidden="true">
+                            <span>Feature</span>
+                        </div>
+
+                        <div class="product-card__content">
+                            <p class="product-card__category">Featured Item</p>
+                            <h3>Backcountry Comfort Bundle</h3>
+                            <p>
+                                The same card component has more space here, so it shifts into a
+                                horizontal media layout with stronger spacing and a larger visual
+                                area.
+                            </p>
+
+                            <div class="product-card__meta" aria-label="Component features">
+                                <span>Responsive</span>
+                                <span>Container-based</span>
+                                <span>No JavaScript</span>
+                            </div>
+
+                            <a class="product-card__button" href="../../index.html">Explore Demo</a>
+                        </div>
+                    </article>
+                </div>
+            </section>
+        </div>
     </main>
 </body>
 </html>

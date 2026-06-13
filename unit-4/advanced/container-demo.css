@@ -12,100 +12,178 @@
   max-width: 65ch;
 }
 
-.demo-layout {
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 700;
+}
+
+.demo-page {
   max-width: 72rem;
   margin-inline: auto;
   padding: 2rem;
+}
 
+.demo-explanation {
+  margin-block-end: 2rem;
+  padding: 1.25rem;
+  border: 1px solid currentColor;
+  border-radius: 1rem;
+}
+
+.demo-explanation p {
+  max-width: 70ch;
+}
+
+.demo-layout {
   display: grid;
-  grid-template-columns: minmax(14rem, 18rem) 1fr;
+  grid-template-columns: minmax(15rem, 18rem) minmax(0, 1fr);
   gap: 2rem;
   align-items: start;
 }
 
-.demo-sidebar,
-.demo-main {
+.narrow-panel,
+.wide-panel {
+  display: grid;
+  gap: 1rem;
   padding: 1rem;
   border: 1px solid currentColor;
   border-radius: 1rem;
+}
+
+.panel-note {
+  margin-block-start: -0.5rem;
+  opacity: 0.8;
 }
 
 /*
-  The container goes on the wrapper, not the component itself.
-  The feature card inside this wrapper can respond to the wrapper's width.
+  Container query setup:
+  The container is the wrapper around the component.
+  The product card inside can respond to this wrapper's width.
 */
-.component-placement {
+.product-container {
   container-type: inline-size;
-  container-name: feature-placement;
+  container-name: product-demo;
 }
 
-.feature-card {
+.product-card {
   display: grid;
   gap: 1rem;
-
   padding: 1rem;
   border: 1px solid currentColor;
   border-radius: 1rem;
 }
 
-.feature-card__image {
-  min-height: 10rem;
+.product-card__image {
+  min-height: 12rem;
+  display: grid;
+  place-items: center;
   border: 1px solid currentColor;
-  border-radius: 0.75rem;
-  background:
-    linear-gradient(135deg, rgb(0 0 0 / 0.08), rgb(0 0 0 / 0.22)),
-    radial-gradient(circle at top left, rgb(255 255 255 / 0.4), transparent 45%);
+  border-radius: 0.85rem;
+  overflow: clip;
 }
 
-.feature-card__content {
+.product-card__image span {
+  padding: 0.35rem 0.75rem;
+  border: 1px solid currentColor;
+  border-radius: 999px;
+  background: rgb(255 255 255 / 0.75);
+}
+
+.product-card__image--tent {
+  background:
+    radial-gradient(circle at 25% 25%, rgb(255 255 255 / 0.55), transparent 24%),
+    linear-gradient(135deg, rgb(0 0 0 / 0.08), rgb(0 0 0 / 0.28));
+}
+
+.product-card__image--pack {
+  background:
+    radial-gradient(circle at 75% 20%, rgb(255 255 255 / 0.55), transparent 22%),
+    linear-gradient(135deg, rgb(0 0 0 / 0.12), rgb(0 0 0 / 0.32));
+}
+
+.product-card__content {
   display: grid;
   gap: 0.75rem;
 }
 
-.feature-card__content a {
+.product-card__category {
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.product-card__content h3 {
+  margin: 0;
+}
+
+.product-card__content p {
+  margin: 0;
+}
+
+.product-card__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.product-card__meta span {
+  padding: 0.35rem 0.65rem;
+  border: 1px solid currentColor;
+  border-radius: 999px;
+  font-size: 0.85rem;
+}
+
+.product-card__button {
   justify-self: start;
   padding: 0.65rem 1rem;
   border: 1px solid currentColor;
   border-radius: 999px;
   text-decoration: none;
+  font-weight: 700;
 }
 
 /*
-  Container query:
-  When the component's container becomes wide enough,
-  the same card changes from vertical to horizontal.
+  First container query:
+  The card becomes horizontal only when its own container is wide enough.
 */
-@container feature-placement (min-width: 36rem) {
-  .feature-card {
-    grid-template-columns: 14rem 1fr;
+@container product-demo (min-width: 36rem) {
+  .product-card {
+    grid-template-columns: 15rem minmax(0, 1fr);
     align-items: center;
   }
 
-  .feature-card__image {
-    min-height: 12rem;
+  .product-card__image {
+    min-height: 15rem;
   }
 }
 
 /*
   Second container query:
-  This creates a third state for extra-wide containers.
+  In an even wider container, the component gets more breathing room.
 */
-@container feature-placement (min-width: 52rem) {
-  .feature-card {
-    grid-template-columns: 18rem 1fr;
+@container product-demo (min-width: 52rem) {
+  .product-card {
+    grid-template-columns: 19rem minmax(0, 1fr);
     padding: 1.5rem;
   }
 
-  .feature-card__content {
-    font-size: 1.1rem;
+  .product-card__content {
+    gap: 1rem;
+  }
+
+  .product-card__content h3 {
+    font-size: 1.75rem;
   }
 }
 
 /*
-  This media query only improves the overall page layout on small screens.
-  The component itself still responds through container queries.
+  This media query only adjusts the page layout.
+  The product card behavior above is still controlled by container queries.
 */
-@media (max-width: 45rem) {
+@media (max-width: 48rem) {
   .demo-layout {
     grid-template-columns: 1fr;
   }
