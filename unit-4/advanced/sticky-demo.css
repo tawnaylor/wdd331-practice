@@ -1,0 +1,86 @@
+/* ------------------------------
+   Sticky Module Demo
+-------------------------------- */
+
+.page-header {
+  max-width: 72rem;
+  margin-inline: auto;
+  padding: 2rem;
+}
+
+.page-header p {
+  max-width: 65ch;
+}
+
+.sticky-layout {
+  max-width: 72rem;
+  margin-inline: auto;
+  padding: 2rem;
+
+  display: grid;
+  grid-template-columns: 16rem 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+/*
+  Sticky overflow bug test and fix:
+
+  I tested the common sticky bug by adding overflow: hidden to .toc-area.
+  That broke the sticky behavior because the ancestor between the sticky
+  element and the page scroll became an overflow container.
+
+  Fix:
+  I removed overflow: hidden from .toc-area. To keep the rounded visual
+  style without clipping the sticky element's ancestor, I applied the border,
+  border-radius, and padding directly to .table-of-contents instead.
+*/
+.toc-area {
+  border-radius: 1rem;
+}
+
+.table-of-contents {
+  position: sticky;
+  top: 1rem;
+
+  display: grid;
+  gap: 0.75rem;
+
+  padding: 1rem;
+  border: 1px solid currentColor;
+  border-radius: 1rem;
+}
+
+.table-of-contents a {
+  text-decoration: none;
+}
+
+.table-of-contents a:hover {
+  text-decoration: underline;
+}
+
+.article-content {
+  display: grid;
+  gap: 2rem;
+}
+
+.content-section {
+  min-height: 75vh;
+  padding: 1.5rem;
+  border: 1px solid currentColor;
+  border-radius: 1rem;
+}
+
+.content-section p {
+  max-width: 65ch;
+}
+
+@media (max-width: 45rem) {
+  .sticky-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .table-of-contents {
+    position: static;
+  }
+}

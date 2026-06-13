@@ -34,17 +34,26 @@
 .articles-page .card-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr));
+  grid-template-rows: auto 1fr auto;
   gap: 1.5rem;
+  align-items: start;
 }
 
 /* ----------------------------------------------------------
    Card
    ---------------------------------------------------------- */
 .articles-page .card {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+
+  /*
+    Each card spans the same three parent row tracks.
+    This allows the internal card parts to align across a row.
+  */
+  grid-row: span 3;
+  gap: 1rem;
+
+  padding: 1.25rem 1.5rem 1.5rem;
   border-radius: 0.75rem;
-  overflow: hidden;
   background: var(--color-surface, #ffffff);
   box-shadow: var(--shadow-card,
     0 2px 4px rgba(0, 0, 0, 0.06),
@@ -59,59 +68,35 @@
   transform: translateY(-3px);
 }
 
-/* Image placeholder - fixed height */
-.articles-page .card > div[aria-hidden="true"] {
-  height: 160px;
-  background: linear-gradient(
-    135deg,
-    var(--color-accent, #3b82f6) 0%,
-    #8b5cf6 100%
-  );
-  flex-shrink: 0;
+/* Subgrid support */
+@supports (grid-template-rows: subgrid) {
+  .articles-page .card {
+    grid-template-rows: subgrid;
+    row-gap: 1rem;
+  }
 }
 
-/* Give each card a slightly different placeholder color for variety */
-.articles-page .card:nth-child(2) > div[aria-hidden="true"] {
-  background: linear-gradient(135deg, #0ea5e9 0%, #06b6d4 100%);
-}
-.articles-page .card:nth-child(3) > div[aria-hidden="true"] {
-  background: linear-gradient(135deg, #10b981 0%, #34d399 100%);
-}
-.articles-page .card:nth-child(4) > div[aria-hidden="true"] {
-  background: linear-gradient(135deg, #f59e0b 0%, #fbbf24 100%);
-}
-.articles-page .card:nth-child(5) > div[aria-hidden="true"] {
-  background: linear-gradient(135deg, #ec4899 0%, #f472b6 100%);
-}
-.articles-page .card:nth-child(6) > div[aria-hidden="true"] {
-  background: linear-gradient(135deg, #6366f1 0%, #818cf8 100%);
-}
-
-/* Card body - flex column so link gets pushed to bottom */
-.articles-page .card > div:not([aria-hidden="true"]) {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-  padding: 1.25rem 1.5rem 1.5rem;
+/* Fallback for browsers without subgrid */
+@supports not (grid-template-rows: subgrid) {
+  .articles-page .card {
+    grid-template-rows: auto 1fr auto;
+  }
 }
 
 .articles-page .card h2 {
   font-size: 1.1rem;
-  margin: 0 0 0.6rem;
+  margin: 0;
 }
 
 .articles-page .card p {
   font-size: 0.9rem;
   line-height: 1.65;
   color: var(--color-text-muted, #64748b);
-  margin: 0 0 1rem;
-  flex: 1;
+  margin: 0;
 }
 
-/* Read more link pinned to bottom */
 .articles-page .card a {
   align-self: flex-start;
-  margin-top: auto;
   font-size: 0.875rem;
   font-weight: 600;
   color: var(--color-accent, #3b82f6);
