@@ -27,11 +27,71 @@
         document.documentElement.dataset.theme = resolvedTheme;
     }
 
+    function buildToggleButton() {
+        const button = document.createElement("button");
+        const thumb = document.createElement("span");
+        const label = document.createElement("span");
+
+        button.type = "button";
+        button.className = "theme-toggle";
+        button.dataset.themeToggle = "";
+
+        thumb.className = "theme-toggle__thumb";
+        thumb.setAttribute("aria-hidden", "true");
+
+        label.className = "theme-toggle__label";
+
+        button.append(thumb, label);
+
+        return button;
+    }
+
+    function mountToggle() {
+        if (document.querySelector("[data-theme-toggle]")) {
+            return;
+        }
+
+        const legacyMenus = document.querySelectorAll(".theme-menu");
+
+        for (const legacyMenu of legacyMenus) {
+            legacyMenu.remove();
+        }
+
+        const button = buildToggleButton();
+        const nav = document.querySelector(".site-nav");
+
+        if (nav) {
+            button.classList.add("theme-toggle--nav");
+            nav.append(button);
+        } else {
+            button.classList.add("theme-toggle--floating");
+            document.body.prepend(button);
+        }
+
+        button.addEventListener("click", () => {
+            const currentTheme = document.documentElement.dataset.theme === "dark" ? "dark" : "light";
+            const nextTheme = currentTheme === "dark" ? "light" : "dark";
+
+            updatePreference(nextTheme);
+        });
+    }
+
     function syncControls(preference) {
-        const controls = document.querySelectorAll('input[name="theme-preference"]');
+        const resolvedTheme = getResolvedTheme(preference);
+        const nextTheme = resolvedTheme === "dark" ? "light" : "dark";
+        const controls = document.querySelectorAll('[data-theme-toggle]');
 
         for (const control of controls) {
-            control.checked = control.value === preference;
+            const label = control.querySelector(".theme-toggle__label");
+
+            control.dataset.themeActive = resolvedTheme;
+            control.setAttribute("aria-pressed", String(resolvedTheme === "dark"));
+            control.setAttribute("aria-label", `Current theme: ${resolvedTheme}. Switch to ${nextTheme} mode.`);
+            control.title = `Switch to ${nextTheme} mode`;
+
+            if (label) {
+                label.textContent = resolvedTheme === "dark" ? "Dark mode" : "Light mode";
+            }
         }
     }
 
@@ -45,15 +105,8 @@
     applyPreference(initialPreference);
 
     document.addEventListener("DOMContentLoaded", () => {
+        mountToggle();
         syncControls(initialPreference);
-
-        const controls = document.querySelectorAll('input[name="theme-preference"]');
-
-        for (const control of controls) {
-            control.addEventListener("change", (event) => {
-                updatePreference(event.target.value);
-            });
-        }
     });
 
     mediaQuery.addEventListener("change", () => {
