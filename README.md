@@ -83,6 +83,7 @@ The custom web font is Merriweather. It is loaded through Google Fonts with `dis
 - [Unit 3 — Visual Effects](unit-3/visual-effects/index.html)
 - [Unit 4 — Editorial Layout](unit-4/grid-layouts/editorial.html)
 - [Unit 4 — Card Grid](unit-4/grid-layouts/cards.html)
+- [Unit 5 — Typography Tokens](unit-5/typography/index.html)
 - [Card Grid with Subgrid](https://tawnaylor.github.io/wdd331-practice/unit-4/grid-layouts/cards.html) — Upgraded card grid using subgrid so card internals align across rows.
 - [Container Query Product Demo](https://tawnaylor.github.io/wdd331-practice/unit-4/advanced/container-demo.html) — Same product card component changes layout based on container width.
 - [Sticky Trail Guide Demo](https://tawnaylor.github.io/wdd331-practice/unit-4/advanced/sticky-demo.html) — Sticky sidebar module with a CSS comment explaining the overflow bug fix.
