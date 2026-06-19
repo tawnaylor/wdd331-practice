@@ -8,14 +8,62 @@
     --space-lg: 2rem;
     --space-xl: 3rem;
 
-    /* Typography */
-    --font-body: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    --font-heading: Georgia, "Times New Roman", serif;
+     /* =========================
+         Typography: Font Families
+         ========================= */
+
+     --font-family-body: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+     --font-family-heading: "Merriweather", Georgia, serif;
+
+     /* =========================
+         Typography: Modular Scale
+         Major Third Ratio: 1.25
+         Base size: 1rem
+         ========================= */
+
+     --font-size-xs: 0.8rem;
     --font-size-sm: 0.875rem;
-    --font-size-base: 1rem;
-    --font-size-lg: clamp(1.25rem, 2vw, 1.5rem);
-    --font-size-xl: clamp(1.75rem, 4vw, 2.5rem);
-    --line-height-base: 1.6;
+     --font-size-md: 1rem;
+     --font-size-lg: clamp(1.125rem, 1.05rem + 0.35vw, 1.25rem);
+     --font-size-xl: clamp(1.35rem, 1.2rem + 0.75vw, 1.563rem);
+     --font-size-2xl: clamp(1.6rem, 1.35rem + 1.25vw, 1.953rem);
+     --font-size-3xl: clamp(1.95rem, 1.55rem + 2vw, 2.441rem);
+     --font-size-4xl: clamp(2.35rem, 1.8rem + 2.8vw, 3.052rem);
+
+     /* =========================
+         Typography: Line Heights
+         ========================= */
+
+     --line-height-tight: 1.1;
+     --line-height-heading: 1.2;
+     --line-height-body: 1.6;
+     --line-height-caption: 1.4;
+
+     /* =========================
+         Typography: Semantic Roles
+         ========================= */
+
+     --font-size-body: var(--font-size-md);
+     --font-size-caption: var(--font-size-xs);
+     --font-size-small: var(--font-size-sm);
+
+     --font-size-heading-sm: var(--font-size-lg);
+     --font-size-heading-md: var(--font-size-xl);
+     --font-size-heading-lg: var(--font-size-2xl);
+     --font-size-display: var(--font-size-4xl);
+
+     /* =========================
+         Legacy Tokens
+         These keep older CSS working
+         ========================= */
+
+     --font-body: var(--font-family-body);
+     --font-heading: var(--font-family-heading);
+     --font-size-base: var(--font-size-body);
+     --font-size-h1: var(--font-size-display);
+     --font-size-h2: var(--font-size-heading-lg);
+     --font-size-h3: var(--font-size-heading-md);
+     --line-height-base: var(--line-height-body);
 
     /* Borders & Radius */
     --radius-sm: 6px;
