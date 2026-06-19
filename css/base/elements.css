@@ -2,9 +2,9 @@
    No classes here — only bare HTML selectors referencing tokens. */
 
 body {
-    font-family: var(--font-body);
-    font-size: var(--font-size-base);
-    line-height: var(--line-height-base);
+    font-family: var(--font-family-body);
+    font-size: var(--font-size-body);
+    line-height: var(--line-height-body);
     color: var(--color-text);
     background-color: var(--color-bg);
     min-height: 100dvh;
@@ -12,24 +12,67 @@ body {
     flex-direction: column;
 }
 
-:is(h1, h2, h3, h4, h5, h6) {
-    font-family: var(--font-heading);
-    line-height: 1.2;
+h1,
+h2,
+h3,
+h4 {
+    font-family: var(--font-family-heading);
+    line-height: var(--line-height-heading);
     color: var(--color-primary);
+    margin-block-start: 0;
     margin-bottom: var(--space-sm);
 }
 
 h1 {
-    font-size: var(--font-size-xl);
+    font-size: var(--font-size-display);
+    line-height: var(--line-height-tight);
 }
 
 h2 {
-    font-size: var(--font-size-lg);
+    font-size: var(--font-size-heading-lg);
+}
+
+h3 {
+    font-size: var(--font-size-heading-md);
+}
+
+h4 {
+    font-size: var(--font-size-heading-sm);
 }
 
 p {
+    font-size: var(--font-size-body);
+    line-height: var(--line-height-body);
     margin-bottom: var(--space-md);
     color: var(--color-text-muted);
+}
+
+small,
+.caption {
+    font-size: var(--font-size-caption);
+    line-height: var(--line-height-caption);
+}
+
+.type-demo {
+    max-width: 70ch;
+    margin-inline: auto;
+    padding: 2rem;
+}
+
+.type-demo h1,
+.type-demo h2,
+.type-demo h3 {
+    margin-block-end: 0.5em;
+}
+
+.type-demo p {
+    margin-block-end: 1.25rem;
+}
+
+.type-demo .caption {
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 700;
 }
 
 a {
