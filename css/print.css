@@ -1,0 +1,138 @@
+/* Print stylesheet — hides interactive chrome, sets print-safe type,
+   surfaces link URLs, and keeps entries from splitting across pages. */
+
+@media print {
+    @page {
+        margin: 0.75in 0.85in;
+        size: letter;
+    }
+
+    .site-nav,
+    .theme-menu,
+    .btn-submit,
+    .page-footer {
+        display: none !important;
+    }
+
+    body {
+        background: white;
+        color: #111;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 10.5pt;
+        line-height: 1.5;
+    }
+
+    .resume-main,
+    main {
+        max-width: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .resume {
+        max-width: none;
+    }
+
+    /* Brand border on header is meaningful — preserve it */
+    .resume-header {
+        border-bottom-color: #6366f1;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+        padding-block-end: 0.25in;
+        margin-block-end: 0.25in;
+        text-align: left;
+    }
+
+    .resume-header h1 {
+        font-size: 22pt;
+        color: #111;
+        margin-block-end: 2pt;
+    }
+
+    .resume-tagline {
+        font-size: 12pt;
+        color: #444;
+        margin-block-end: 4pt;
+    }
+
+    .resume-contact-line {
+        justify-content: flex-start;
+        font-size: 9pt;
+        color: #444;
+        gap: 4pt 16pt;
+    }
+
+    /* Section heading color is the only visual hierarchy signal — keep it */
+    .resume-section h2 {
+        font-size: 9pt;
+        color: #6366f1;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+        border-bottom-color: #ccc;
+        margin-block-end: 6pt;
+        padding-block-end: 2pt;
+    }
+
+    .entry-header h3 {
+        font-size: 10.5pt;
+        color: #111;
+    }
+
+    .entry-meta {
+        font-size: 9pt;
+        color: #555;
+    }
+
+    .resume-entry li,
+    .skill-group dd {
+        font-size: 9.5pt;
+        color: #333;
+    }
+
+    .skill-group dt {
+        font-size: 9pt;
+        color: #111;
+    }
+
+    /* Surface link URLs on paper */
+    a[href]::after {
+        content: " (" attr(href) ")";
+        font-size: 8pt;
+        color: #555;
+        font-style: italic;
+        word-break: break-all;
+    }
+
+    /* Suppress URL display where the text already is the URL */
+    .nav-brand::after,
+    .resume-contact-line a::after {
+        content: none;
+    }
+
+    /* Keep entries together; prevent lone lines at page edges */
+    .resume-entry {
+        break-inside: avoid;
+        orphans: 3;
+        widows: 3;
+    }
+
+    .resume-section {
+        break-inside: avoid;
+    }
+
+    .skills-grid {
+        grid-template-columns: 1fr;
+        gap: 4pt;
+    }
+
+    a {
+        text-decoration: none;
+        color: inherit;
+    }
+
+    .contact-section,
+    .contact-form-wrapper,
+    .contact-form {
+        display: none;
+    }
+}

@@ -16,6 +16,10 @@
 @import "components/cards.css" layer(components);
 @import "components/effects.css" layer(components);
 @import "components/theme-toggle.css" layer(components);
+@import "components/resume.css" layer(components);
+@import "components/contact.css" layer(components);
 
 /* Utilities */
 @import "utilities/utilities.css" layer(utilities);
+
+@import "print.css";

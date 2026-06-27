@@ -28,13 +28,11 @@ html {
     --color-primary: var(--seed-accent);
     --color-primary-hover: var(--seed-accent-hover);
     --color-accent: var(--seed-highlight);
-    --color-accent-hover: var(--seed-highlight-hover);
     --color-text: var(--seed-text-light);
     --color-text-muted: var(--seed-text-muted-light);
     --color-border: var(--seed-border-light);
 
     --header-bg: var(--color-surface);
-    --header-text: var(--color-text);
     --theme-toggle-bg: color-mix(in srgb, var(--header-bg) 88%, var(--color-text));
     --theme-toggle-border: color-mix(in srgb, var(--header-bg) 72%, var(--color-text));
     --theme-toggle-bg-hover: color-mix(in srgb, var(--header-bg) 80%, var(--color-text));
@@ -51,5 +49,4 @@ html[data-theme="dark"] {
     --color-border: var(--seed-border-dark);
 
     --header-bg: color-mix(in srgb, var(--color-surface) 78%, black);
-    --header-text: var(--color-text);
 }

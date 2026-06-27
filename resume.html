@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Résumé — Taw Naylor</title>
+    <script src="js/theme-preference.js"></script>
+    <link rel="stylesheet" href="dist/styles.css">
+</head>
+<body>
+    <nav class="site-nav">
+        <a href="index.html" class="nav-brand">Taw Naylor</a>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="resume.html" aria-current="page">Résumé</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="unit-5/typography/index.html">Unit 5</a></li>
+        </ul>
+        <details class="theme-menu">
+            <summary class="theme-control">
+                <span class="visually-hidden">Color scheme</span>
+            </summary>
+            <div class="theme-extra" role="group" aria-label="Choose color scheme">
+                <label class="theme-control theme-pick" data-theme-pick="light">
+                    <input name="theme-preference" type="radio" value="light">
+                    <span aria-hidden="true">&#9788;&#65039;</span>
+                    <span class="visually-hidden">Light</span>
+                </label>
+                <label class="theme-control theme-pick" data-theme-pick="system">
+                    <input name="theme-preference" type="radio" value="system" checked>
+                    <span aria-hidden="true">&#9881;&#65039;</span>
+                    <span class="visually-hidden">System default</span>
+                </label>
+                <label class="theme-control theme-pick" data-theme-pick="dark">
+                    <input name="theme-preference" type="radio" value="dark">
+                    <span aria-hidden="true">&#127766;</span>
+                    <span class="visually-hidden">Dark</span>
+                </label>
+            </div>
+        </details>
+    </nav>
+
+    <main class="resume-main">
+        <article class="resume">
+            <header class="resume-header">
+                <h1>Taw Naylor</h1>
+                <p class="resume-tagline">Web Developer &amp; Designer</p>
+                <ul class="resume-contact-line">
+                    <li><a href="mailto:taw.naylor@example.com">taw.naylor@example.com</a></li>
+                    <li><a href="https://tawnaylor.github.io/wdd331-practice/">tawnaylor.github.io/wdd331-practice</a></li>
+                    <li>Salt Lake City, UT</li>
+                </ul>
+            </header>
+
+            <section class="resume-section" aria-labelledby="summary-heading">
+                <h2 id="summary-heading">Summary</h2>
+                <p>Front-end developer and full-time BYU-Idaho student with a background in web design, graphic art, and storytelling. Focused on building accessible, maintainable CSS architectures and dynamic JavaScript interfaces. Comfortable leading collaborative software projects and communicating clearly in team environments.</p>
+            </section>
+
+            <section class="resume-section" aria-labelledby="skills-heading">
+                <h2 id="skills-heading">Technical Skills</h2>
+                <dl class="skills-grid">
+                    <div class="skill-group">
+                        <dt>Languages</dt>
+                        <dd>HTML, CSS, JavaScript, SQL</dd>
+                    </div>
+                    <div class="skill-group">
+                        <dt>CSS</dt>
+                        <dd>Custom Properties, Cascade Layers, Grid, Flexbox, Animations, Print Stylesheets</dd>
+                    </div>
+                    <div class="skill-group">
+                        <dt>JavaScript</dt>
+                        <dd>ES Modules, DOM APIs, Fetch, Vite, LocalStorage</dd>
+                    </div>
+                    <div class="skill-group">
+                        <dt>Tools</dt>
+                        <dd>Git &amp; GitHub, MySQL Workbench, VS Code, Figma</dd>
+                    </div>
+                    <div class="skill-group">
+                        <dt>Design</dt>
+                        <dd>Graphic design, illustration, design token systems, accessibility auditing</dd>
+                    </div>
+                </dl>
+            </section>
+
+            <section class="resume-section" aria-labelledby="projects-heading">
+                <h2 id="projects-heading">Projects</h2>
+
+                <article class="resume-entry" aria-labelledby="cardflow-heading">
+                    <header class="entry-header">
+                        <h3 id="cardflow-heading">CardFlow — Trading Card Collection Manager</h3>
+                        <span class="entry-meta">Personal Project &bull; 2025–2026</span>
+                    </header>
+                    <ul>
+                        <li>Built a full-stack trading card collection web app hosted at <a href="https://tawnaylor.github.io/cardflow/">tawnaylor.github.io/cardflow</a></li>
+                        <li>Implemented dynamic card listing with JavaScript ESModules, URL parameters, and Vite</li>
+                        <li>Designed and maintained a token-driven CSS architecture with dark mode and animation support</li>
+                    </ul>
+                </article>
+
+                <article class="resume-entry" aria-labelledby="dnd-heading">
+                    <header class="entry-header">
+                        <h3 id="dnd-heading">D&amp;D Companion App</h3>
+                        <span class="entry-meta">Collaborative Team Project &bull; 2026</span>
+                    </header>
+                    <ul>
+                        <li>Co-developed a web application for Dungeons &amp; Dragons character and monster creation with a teammate</li>
+                        <li>Designed a relational MySQL schema for monsters, characters, and dice roll logs</li>
+                        <li>Handled front-end architecture and feature planning across multiple sprints</li>
+                    </ul>
+                </article>
+
+                <article class="resume-entry" aria-labelledby="ascend-heading">
+                    <header class="entry-header">
+                        <h3 id="ascend-heading">ASCEND — Mobile Fitness App Prototype</h3>
+                        <span class="entry-meta">Solo Project &bull; 2025–2026</span>
+                    </header>
+                    <ul>
+                        <li>Conceived and prototyped a fitness tracking app with a Solo Leveling anime aesthetic</li>
+                        <li>Produced a full product specification document and multiple interactive HTML prototypes</li>
+                        <li>Designed custom UI components and an icon system aligned with brand identity</li>
+                    </ul>
+                </article>
+
+                <article class="resume-entry" aria-labelledby="practice-heading">
+                    <header class="entry-header">
+                        <h3 id="practice-heading">WDD 331R Advanced CSS Practice Site</h3>
+                        <span class="entry-meta">Coursework &bull; 2025–2026</span>
+                    </header>
+                    <ul>
+                        <li>Built a progressive practice site demonstrating cascade layers, visual effects, grid layouts, typography systems, and print stylesheets</li>
+                        <li>Deployed to GitHub Pages with automated CI/CD via GitHub Actions</li>
+                        <li>Maintained clean token architecture across five course units</li>
+                    </ul>
+                </article>
+            </section>
+
+            <section class="resume-section" aria-labelledby="edu-heading">
+                <h2 id="edu-heading">Education</h2>
+                <article class="resume-entry" aria-labelledby="byui-heading">
+                    <header class="entry-header">
+                        <h3 id="byui-heading">Brigham Young University &ndash; Idaho</h3>
+                        <span class="entry-meta">B.S. in Web Design and Development &bull; In Progress</span>
+                    </header>
+                    <ul>
+                        <li>Coursework: Advanced CSS, JavaScript, Database Design, Biology, English Composition, Religious Studies</li>
+                        <li>Collaborative software development team project lead</li>
+                        <li>Carrying a full-time course load as an online student</li>
+                    </ul>
+                </article>
+            </section>
+
+            <section class="resume-section" aria-labelledby="service-heading">
+                <h2 id="service-heading">Leadership &amp; Service</h2>
+                <article class="resume-entry">
+                    <header class="entry-header">
+                        <h3>Sunday School Teacher</h3>
+                        <span class="entry-meta">The Church of Jesus Christ of Latter-day Saints &bull; 2024–Present</span>
+                    </header>
+                    <ul>
+                        <li>Teach weekly Come, Follow Me lessons to youth ages 14–18</li>
+                        <li>Prepare engaging visual presentations and discussion materials each week</li>
+                    </ul>
+                </article>
+            </section>
+        </article>
+    </main>
+
+    <footer class="page-footer">
+        <p>Taw Naylor &mdash; <a href="contact.html">Contact Me</a> &mdash; <a href="https://github.com/tawnaylor">GitHub</a></p>
+    </footer>
+</body>
+</html>

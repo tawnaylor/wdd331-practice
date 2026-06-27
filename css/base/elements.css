@@ -94,3 +94,22 @@ a {
 li {
     margin-block: var(--space-xs);
 }
+
+/* Form element base styles */
+:root {
+    accent-color: var(--color-primary);
+}
+
+input,
+textarea,
+select,
+button {
+    font-family: inherit;
+    font-size: inherit;
+}
+
+fieldset {
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    padding: var(--space-sm) var(--space-md);
+}
