@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact — Taw Naylor</title>
+    <script src="js/theme-preference.js"></script>
+    <link rel="stylesheet" href="dist/styles.css">
+</head>
+<body>
+    <nav class="site-nav">
+        <a href="index.html" class="nav-brand">Taw Naylor</a>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="resume.html">Résumé</a></li>
+            <li><a href="contact.html" aria-current="page">Contact</a></li>
+            <li><a href="unit-5/typography/index.html">Unit 5</a></li>
+        </ul>
+        <details class="theme-menu">
+            <summary class="theme-control">
+                <span class="visually-hidden">Color scheme</span>
+            </summary>
+            <div class="theme-extra" role="group" aria-label="Choose color scheme">
+                <label class="theme-control theme-pick" data-theme-pick="light">
+                    <input name="theme-preference" type="radio" value="light">
+                    <span aria-hidden="true">&#9788;&#65039;</span>
+                    <span class="visually-hidden">Light</span>
+                </label>
+                <label class="theme-control theme-pick" data-theme-pick="system">
+                    <input name="theme-preference" type="radio" value="system" checked>
+                    <span aria-hidden="true">&#9881;&#65039;</span>
+                    <span class="visually-hidden">System default</span>
+                </label>
+                <label class="theme-control theme-pick" data-theme-pick="dark">
+                    <input name="theme-preference" type="radio" value="dark">
+                    <span aria-hidden="true">&#127766;</span>
+                    <span class="visually-hidden">Dark</span>
+                </label>
+            </div>
+        </details>
+    </nav>
+
+    <header class="page-header">
+        <h1>Get in Touch</h1>
+        <p>Have a project in mind or just want to say hello? Fill out the form below.</p>
+    </header>
+
+    <main>
+        <section class="contact-section">
+            <div class="contact-form-wrapper">
+                <form class="contact-form" action="#" method="post" novalidate>
+                    <div class="form-field">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" autocomplete="name" placeholder="Your full name" required>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" autocomplete="email" placeholder="your@email.com" required>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" name="subject" placeholder="What's this about?">
+                    </div>
+
+                    <div class="form-field">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" placeholder="Tell me about your project or question..." required></textarea>
+                    </div>
+
+                    <fieldset class="form-fieldset">
+                        <legend>Preferences</legend>
+                        <label class="form-checkbox">
+                            <input type="checkbox" id="subscribe" name="subscribe" value="yes">
+                            <span>Subscribe to occasional updates about my projects</span>
+                        </label>
+                        <label class="form-checkbox">
+                            <input type="checkbox" id="collab" name="collab" value="yes">
+                            <span>I'm interested in collaborating on a project</span>
+                        </label>
+                    </fieldset>
+
+                    <div class="form-field">
+                        <label for="priority">Urgency</label>
+                        <input type="range" id="priority" name="priority" min="1" max="5" value="3">
+                        <span class="range-labels">
+                            <span>Low</span>
+                            <span>High</span>
+                        </span>
+                    </div>
+
+                    <button type="submit" class="btn-submit">Send Message</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="page-footer">
+        <p>Taw Naylor &mdash; <a href="resume.html">Résumé</a> &mdash; <a href="https://github.com/tawnaylor">GitHub</a></p>
+    </footer>
+</body>
+</html>
