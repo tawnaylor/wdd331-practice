@@ -105,24 +105,76 @@ nav a:not(:hover):not(:focus-visible) {
     transition: transform 200ms ease-out, box-shadow 200ms ease-out;
 }
 
-.card:hover {
+.card:hover,
+.card:focus-within {
     transform: translateY(-4px);
     box-shadow: 0 12px 24px rgb(0 0 0 / 0.08);
 }
 
-.card:not(:hover) {
+.card:not(:hover):not(:focus-within) {
     transition: transform 350ms ease-in, box-shadow 350ms ease-in;
 }
 
 .card-link {
     display: inline-block;
+    cursor: pointer;
+    list-style: none;
     transition: color 150ms ease-out, transform 150ms ease-out;
+}
+
+.card-link::-webkit-details-marker {
+    display: none;
 }
 
 .card-link:hover,
 .card-link:focus-visible {
     color: var(--color-primary-dark, #1d4ed8);
     transform: translateX(4px);
+}
+
+.card-example {
+    margin-top: 1rem;
+}
+
+.card-example__content {
+    display: grid;
+    gap: 0.75rem;
+    margin-top: 0.9rem;
+    padding-top: 0.9rem;
+    border-top: 1px solid var(--color-border, rgb(0 0 0 / 0.12));
+    animation: card-example-in 180ms ease-out;
+}
+
+.card-example__content p {
+    margin: 0;
+}
+
+.card-example__link {
+    color: var(--color-primary, #2563eb);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.card-example__link:hover,
+.card-example__link:focus-visible {
+    color: var(--color-primary-dark, #1d4ed8);
+    text-decoration: underline;
+}
+
+.card-example__list {
+    margin: 0;
+    padding-left: 1.2rem;
+}
+
+@keyframes card-example-in {
+    from {
+        opacity: 0;
+        transform: translateY(-4px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* ==========================================================================
@@ -200,6 +252,10 @@ nav a:not(:hover):not(:focus-visible) {
     }
 
     .card {
+        animation: none;
+    }
+
+    .card-example__content {
         animation: none;
     }
 
