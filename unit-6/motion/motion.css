@@ -1,0 +1,216 @@
+/* ==========================================================================
+   1. NAVIGATION LINKS
+   ========================================================================== */
+
+nav a {
+    color: var(--color-text, #2a2a2a);
+    text-decoration: none;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    transition: color 150ms ease-out, background-color 150ms ease-out;
+}
+
+nav a:hover,
+nav a:focus-visible {
+    color: var(--color-primary, #2563eb);
+    background-color: var(--color-surface-hover, #eef2ff);
+}
+
+/* leave transition slightly slower than enter, for a calmer exit */
+nav a:not(:hover):not(:focus-visible) {
+    transition: color 250ms ease-in, background-color 250ms ease-in;
+}
+
+.nav-cta {
+    background-color: var(--color-primary, #2563eb);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    display: inline-block;
+    transition: transform 150ms cubic-bezier(0.34, 1.56, 0.64, 1),
+                background-color 150ms ease-out;
+}
+
+.nav-cta:hover,
+.nav-cta:focus-visible {
+    background-color: var(--color-primary-dark, #1d4ed8);
+    transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   2. BUTTONS
+   ========================================================================== */
+
+.btn {
+    border: none;
+    border-radius: 6px;
+    padding: 0.6rem 1.25rem;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+/* Primary: most visual weight, can afford a bigger, bouncier change */
+.btn-primary {
+    background-color: var(--color-primary, #2563eb);
+    color: white;
+    transition: transform 180ms cubic-bezier(0.34, 1.56, 0.64, 1),
+                box-shadow 180ms ease-out,
+                background-color 180ms ease-out;
+}
+
+.btn-primary:hover,
+.btn-primary:focus-visible {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 8px 20px rgb(37 99 235 / 0.35);
+    background-color: var(--color-primary-dark, #1d4ed8);
+}
+
+.btn-primary:not(:hover):not(:focus-visible) {
+    transition: transform 300ms ease-in, box-shadow 300ms ease-in,
+                background-color 300ms ease-in;
+}
+
+/* Secondary: medium weight, subtler shift */
+.btn-secondary {
+    background-color: transparent;
+    color: var(--color-primary, #2563eb);
+    border: 2px solid var(--color-primary, #2563eb);
+    transition: background-color 150ms ease-out, color 150ms ease-out;
+}
+
+.btn-secondary:hover,
+.btn-secondary:focus-visible {
+    background-color: var(--color-primary, #2563eb);
+    color: white;
+}
+
+/* Ghost: lightest weight, barely-there feedback */
+.btn-ghost {
+    background-color: transparent;
+    color: var(--color-text, #2a2a2a);
+    transition: background-color 150ms ease-out, opacity 150ms ease-out;
+}
+
+.btn-ghost:hover,
+.btn-ghost:focus-visible {
+    background-color: var(--color-surface-hover, #f2f2f2);
+    opacity: 0.85;
+}
+
+/* ==========================================================================
+   3. CARDS
+   ========================================================================== */
+
+.card {
+    transition: transform 200ms ease-out, box-shadow 200ms ease-out;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px rgb(0 0 0 / 0.08);
+}
+
+.card:not(:hover) {
+    transition: transform 350ms ease-in, box-shadow 350ms ease-in;
+}
+
+.card-link {
+    display: inline-block;
+    transition: color 150ms ease-out, transform 150ms ease-out;
+}
+
+.card-link:hover,
+.card-link:focus-visible {
+    color: var(--color-primary-dark, #1d4ed8);
+    transform: translateX(4px);
+}
+
+/* ==========================================================================
+   4. STATUS BADGE — keyframe pulse
+   ========================================================================== */
+
+.status-badge {
+    display: inline-block;
+    background-color: var(--color-success, #16a34a);
+    color: white;
+    padding: 0.2rem 0.6rem;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    animation: pulse-live 2.4s cubic-bezier(0.45, 0, 0.55, 1) infinite alternate;
+}
+
+@keyframes pulse-live {
+    from {
+        opacity: 1;
+        transform: scale(1);
+    }
+    to {
+        opacity: 0.6;
+        transform: scale(0.94);
+    }
+}
+
+/* ==========================================================================
+   5. CARD ENTRANCE STAGGER (choose-topic: choreography)
+   ========================================================================== */
+
+.card {
+    animation: card-in 400ms ease-out backwards;
+}
+
+.card:nth-child(1) { animation-delay: 0ms; }
+.card:nth-child(2) { animation-delay: 60ms; }
+.card:nth-child(3) { animation-delay: 120ms; }
+.card:nth-child(4) { animation-delay: 180ms; }
+.card:nth-child(5) { animation-delay: 240ms; }
+.card:nth-child(6) { animation-delay: 300ms; }
+
+@keyframes card-in {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ==========================================================================
+   6. REDUCED MOTION
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+    nav a,
+    .nav-cta,
+    .btn-primary,
+    .btn-secondary,
+    .btn-ghost,
+    .card,
+    .card-link {
+        transition-duration: 0.01ms !important;
+    }
+
+    .nav-cta:hover,
+    .nav-cta:focus-visible,
+    .btn-primary:hover,
+    .btn-primary:focus-visible {
+        transform: none;
+    }
+
+    .card {
+        animation: none;
+    }
+
+    /* Badge still needs to read as "live" — swap the infinite pulse
+       for a single, gentle fade-in on load instead of removing motion entirely */
+    .status-badge {
+        animation: badge-settle 600ms ease-out 1;
+    }
+
+    @keyframes badge-settle {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+}
