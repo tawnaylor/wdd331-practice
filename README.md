@@ -84,6 +84,7 @@ The custom web font is Merriweather. It is loaded through Google Fonts with `dis
 - [Unit 4 — Editorial Layout](unit-4/grid-layouts/editorial.html)
 - [Unit 4 — Card Grid](unit-4/grid-layouts/cards.html)
 - [Unit 5 — Typography Tokens](unit-5/typography/index.html)
+- [Résumé / CV](resume.html) — contact info and social links with accessible SVG icon sprite
 - [Motion & Reduced-Motion Support](unit-6/motion/index.html)
 - [Card Grid with Subgrid](https://tawnaylor.github.io/wdd331-practice/unit-4/grid-layouts/cards.html) — Upgraded card grid using subgrid so card internals align across rows.
 - [Container Query Product Demo](https://tawnaylor.github.io/wdd331-practice/unit-4/advanced/container-demo.html) — Same product card component changes layout based on container width.

@@ -18,6 +18,7 @@
 @import "components/theme-toggle.css" layer(components);
 @import "components/resume.css" layer(components);
 @import "components/contact.css" layer(components);
+@import "components/icons.css" layer(components);
 
 /* Utilities */
 @import "utilities/utilities.css" layer(utilities);
