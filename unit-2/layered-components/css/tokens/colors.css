@@ -27,12 +27,12 @@ html[data-theme="dark"] {
   color-scheme: dark;
 }
 
-html:has(input[name="theme-preference"][value="dark"]:checked) {
+html:has(input[name="theme"][value="dark"]:checked) {
   color-scheme: dark;
 }
 
 @media (prefers-color-scheme: dark) {
-  html:has(input[name="theme-preference"][value="system"]:checked) {
+  html:has(input[name="theme"][value="system"]:checked) {
     color-scheme: dark;
   }
 }

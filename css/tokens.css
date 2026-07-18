@@ -1,0 +1,79 @@
+/* ==========================================================================
+   GLOBAL TOKENS — repo-root/css/tokens.css
+   Lifted from unit-1/custom-properties/styles.css and promoted to a shared
+   file so index.html, hub.html, and resume.html all draw from the same
+   source instead of each page re-declaring its own copy.
+   ========================================================================== */
+
+:root {
+    color-scheme: light;
+
+    --color-background: #f4f7fb;
+    --color-surface: #ffffff;
+    --color-primary: #2563eb;
+    --color-accent: #d97706;
+    --color-text: #172033;
+    --color-muted: #52607a;
+    --color-border: #cfd8e6;
+    --color-card-background: var(--color-surface);
+
+    --gradient-glow: rgb(96 165 250 / 0.28);
+    --gradient-backdrop: #e8eef8;
+    --card-shadow: 0 1rem 2rem rgb(15 23 42 / 0.12);
+    --card-shadow-hover: 0 1.5rem 3rem rgb(15 23 42 / 0.18);
+
+    --space-sm: 0.5rem;
+    --space-md: 1rem;
+    --space-lg: 2rem;
+    --space-xl: calc(var(--space-lg) * 2);
+
+    --font-main: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    --font-heading: Georgia, "Times New Roman", serif;
+    --font-base-size: 1rem;
+
+    --radius-card: 1rem;
+    --radius-pill: 999px;
+}
+
+html[data-theme="dark"] {
+    color-scheme: dark;
+
+    --color-background: #101827;
+    --color-surface: #1f2a44;
+    --color-primary: #8be9fd;
+    --color-accent: #ffb86c;
+    --color-text: #f8f8f2;
+    --color-muted: #b8c0d9;
+    --color-border: #3a4563;
+    --color-card-background: var(--color-surface);
+
+    --gradient-glow: rgb(49 71 109 / 0.9);
+    --gradient-backdrop: #080c16;
+    --card-shadow: 0 1rem 2rem rgb(0 0 0 / 0.25);
+    --card-shadow-hover: 0 1.5rem 3rem rgb(0 0 0 / 0.35);
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    font-family: var(--font-main, Arial, sans-serif);
+    font-size: var(--font-base-size);
+    color: var(--color-text);
+    line-height: 1.6;
+}
+
+a {
+    color: var(--color-primary);
+    text-decoration: none;
+    font-weight: 700;
+}
+a:hover { color: var(--color-accent); }
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; animation: none !important; }
+}

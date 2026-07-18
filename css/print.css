@@ -1,138 +1,36 @@
-/* Print stylesheet — hides interactive chrome, sets print-safe type,
-   surfaces link URLs, and keeps entries from splitting across pages. */
+/* ==========================================================================
+   PRINT — link this on resume.html only:
+   <link rel="stylesheet" href="css/print.css" media="print">
+   ========================================================================== */
 
 @media print {
-    @page {
-        margin: 0.75in 0.85in;
-        size: letter;
-    }
+  .site-header nav,
+  .theme-toggle,
+  .site-footer,
+  .hero__actions {
+    display: none !important;
+  }
 
-    .site-nav,
-    .theme-menu,
-    .btn-submit,
-    .page-footer {
-        display: none !important;
-    }
+  body {
+    background: #fff;
+    color: #000;
+    font-size: 11pt;
+  }
 
-    body {
-        background: white;
-        color: #111;
-        font-family: Georgia, "Times New Roman", serif;
-        font-size: 10.5pt;
-        line-height: 1.5;
-    }
+  a { color: #000; text-decoration: none; }
 
-    .resume-main,
-    main {
-        max-width: none;
-        padding: 0;
-        margin: 0;
-    }
+  a[href^="http"]::after,
+  a[href^="mailto"]::after,
+  a[href^="tel"]::after {
+    content: " (" attr(href) ")";
+    font-size: 0.8em;
+    color: #444;
+  }
 
-    .resume {
-        max-width: none;
-    }
+  .wrap { max-width: 100%; padding: 0; }
 
-    /* Brand border on header is meaningful — preserve it */
-    .resume-header {
-        border-bottom-color: #6366f1;
-        -webkit-print-color-adjust: exact;
-        print-color-adjust: exact;
-        padding-block-end: 0.25in;
-        margin-block-end: 0.25in;
-        text-align: left;
-    }
+  h1, h2, h3 { break-after: avoid; }
+  section, article { break-inside: avoid; }
 
-    .resume-header h1 {
-        font-size: 22pt;
-        color: #111;
-        margin-block-end: 2pt;
-    }
-
-    .resume-tagline {
-        font-size: 12pt;
-        color: #444;
-        margin-block-end: 4pt;
-    }
-
-    .resume-contact-line {
-        justify-content: flex-start;
-        font-size: 9pt;
-        color: #444;
-        gap: 4pt 16pt;
-    }
-
-    /* Section heading color is the only visual hierarchy signal — keep it */
-    .resume-section h2 {
-        font-size: 9pt;
-        color: #6366f1;
-        -webkit-print-color-adjust: exact;
-        print-color-adjust: exact;
-        border-bottom-color: #ccc;
-        margin-block-end: 6pt;
-        padding-block-end: 2pt;
-    }
-
-    .entry-header h3 {
-        font-size: 10.5pt;
-        color: #111;
-    }
-
-    .entry-meta {
-        font-size: 9pt;
-        color: #555;
-    }
-
-    .resume-entry li,
-    .skill-group dd {
-        font-size: 9.5pt;
-        color: #333;
-    }
-
-    .skill-group dt {
-        font-size: 9pt;
-        color: #111;
-    }
-
-    /* Surface link URLs on paper */
-    a[href]::after {
-        content: " (" attr(href) ")";
-        font-size: 8pt;
-        color: #555;
-        font-style: italic;
-        word-break: break-all;
-    }
-
-    /* Suppress URL display where the text already is the URL */
-    .nav-brand::after,
-    .resume-contact-line a::after {
-        content: none;
-    }
-
-    /* Keep entries together; prevent lone lines at page edges */
-    .resume-entry {
-        break-inside: avoid;
-        orphans: 3;
-        widows: 3;
-    }
-
-    .resume-section {
-        break-inside: avoid;
-    }
-
-    .skills-grid {
-        grid-template-columns: 1fr;
-        gap: 4pt;
-    }
-
-    a {
-        text-decoration: none;
-        color: inherit;
-    }
-
-    .contact-section,
-    .contact-form-wrapper,
-    .contact-form {
-        display: none;
-    }
+  @page { margin: 1.5cm; }
 }

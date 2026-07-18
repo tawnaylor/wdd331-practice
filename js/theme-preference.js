@@ -1,120 +1,64 @@
-(() => {
-    const storageKey = "theme-preference";
-    const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+/**
+ * theme-preference.js
+ * Loaded synchronously in <head> (no defer/async) so the theme is applied
+ * before first paint — that's why every page uses
+ * <script src="js/theme-preference.js"></script>, not <script defer>.
+ */
+(function () {
+  var STORAGE_KEY = "theme-preference";
+  var root = document.documentElement;
+  var media = window.matchMedia("(prefers-color-scheme: dark)");
 
-    function getStoredPreference() {
-        const value = window.localStorage.getItem(storageKey);
+  function systemPrefersDark() {
+    return media.matches;
+  }
 
-        if (value === "light" || value === "dark" || value === "system") {
-            return value;
-        }
-
-        return "system";
+  function applyTheme(pref) {
+    if (pref === "dark") {
+      root.setAttribute("data-theme", "dark");
+    } else if (pref === "light") {
+      root.setAttribute("data-theme", "light");
+    } else {
+      root.setAttribute("data-theme", systemPrefersDark() ? "dark" : "light");
     }
+  }
 
-    function getResolvedTheme(preference) {
-        if (preference === "system") {
-            return mediaQuery.matches ? "dark" : "light";
-        }
+  function getStoredPreference() {
+    var stored = localStorage.getItem(STORAGE_KEY);
+    return stored === "light" || stored === "dark" || stored === "system"
+      ? stored
+      : "system";
+  }
 
-        return preference;
+  function setPreference(pref) {
+    localStorage.setItem(STORAGE_KEY, pref);
+    applyTheme(pref);
+    syncRadios(pref);
+  }
+
+  function syncRadios(pref) {
+    var inputs = document.querySelectorAll('input[name="theme"]');
+    for (var i = 0; i < inputs.length; i++) {
+      inputs[i].checked = inputs[i].value === pref;
     }
+  }
 
-    function applyPreference(preference) {
-        const resolvedTheme = getResolvedTheme(preference);
+  var currentPreference = getStoredPreference();
+  applyTheme(currentPreference);
 
-        document.documentElement.dataset.themePreference = preference;
-        document.documentElement.dataset.theme = resolvedTheme;
+  media.addEventListener("change", function () {
+    if (getStoredPreference() === "system") {
+      applyTheme("system");
     }
+  });
 
-    function buildToggleButton() {
-        const button = document.createElement("button");
-        const thumb = document.createElement("span");
-        const label = document.createElement("span");
-
-        button.type = "button";
-        button.className = "theme-toggle";
-        button.dataset.themeToggle = "";
-
-        thumb.className = "theme-toggle__thumb";
-        thumb.setAttribute("aria-hidden", "true");
-
-        label.className = "theme-toggle__label";
-
-        button.append(thumb, label);
-
-        return button;
+  document.addEventListener("DOMContentLoaded", function () {
+    syncRadios(currentPreference);
+    var inputs = document.querySelectorAll('input[name="theme"]');
+    for (var i = 0; i < inputs.length; i++) {
+      inputs[i].addEventListener("change", function (e) {
+        setPreference(e.target.value);
+      });
     }
-
-    function mountToggle() {
-        if (document.querySelector("[data-theme-toggle]")) {
-            return;
-        }
-
-        const legacyMenus = document.querySelectorAll(".theme-menu");
-
-        for (const legacyMenu of legacyMenus) {
-            legacyMenu.remove();
-        }
-
-        const button = buildToggleButton();
-        const nav = document.querySelector(".site-nav");
-
-        if (nav) {
-            button.classList.add("theme-toggle--nav");
-            nav.append(button);
-        } else {
-            button.classList.add("theme-toggle--floating");
-            document.body.prepend(button);
-        }
-
-        button.addEventListener("click", () => {
-            const currentTheme = document.documentElement.dataset.theme === "dark" ? "dark" : "light";
-            const nextTheme = currentTheme === "dark" ? "light" : "dark";
-
-            updatePreference(nextTheme);
-        });
-    }
-
-    function syncControls(preference) {
-        const resolvedTheme = getResolvedTheme(preference);
-        const nextTheme = resolvedTheme === "dark" ? "light" : "dark";
-        const controls = document.querySelectorAll('[data-theme-toggle]');
-
-        for (const control of controls) {
-            const label = control.querySelector(".theme-toggle__label");
-
-            control.dataset.themeActive = resolvedTheme;
-            control.setAttribute("aria-pressed", String(resolvedTheme === "dark"));
-            control.setAttribute("aria-label", `Current theme: ${resolvedTheme}. Switch to ${nextTheme} mode.`);
-            control.title = `Switch to ${nextTheme} mode`;
-
-            if (label) {
-                label.textContent = resolvedTheme === "dark" ? "Dark mode" : "Light mode";
-            }
-        }
-    }
-
-    function updatePreference(preference) {
-        window.localStorage.setItem(storageKey, preference);
-        applyPreference(preference);
-        syncControls(preference);
-    }
-
-    const initialPreference = getStoredPreference();
-    applyPreference(initialPreference);
-
-    document.addEventListener("DOMContentLoaded", () => {
-        mountToggle();
-        syncControls(initialPreference);
-    });
-
-    mediaQuery.addEventListener("change", () => {
-        const preference = getStoredPreference();
-
-        if (preference === "system") {
-            applyPreference(preference);
-            syncControls(preference);
-        }
-    });
+  });
 })();
