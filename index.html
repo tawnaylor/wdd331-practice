@@ -1,145 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Taw Naylor — WDD 331R Advanced CSS</title>
-    <script src="js/theme-preference.js"></script>
-    <link rel="stylesheet" href="dist/styles.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Taw Naylor — Web Developer</title>
+<script src="js/theme-preference.js"></script>
+<link rel="stylesheet" href="css/site.css">
 </head>
 <body>
-    <nav class="site-nav">
-        <a href="index.html" class="nav-brand">Taw Naylor</a>
-        <ul>
-            <li><a href="index.html" aria-current="page">Home</a></li>
-            <li><a href="resume.html">Résumé</a></li>
-            <li><a href="contact.html">Contact</a></li>
-            <li><a href="unit-5/typography/index.html">Unit 5</a></li>
-        </ul>
 
-        <details class="theme-menu">
-            <summary class="theme-control">
-                <span class="visually-hidden">Color scheme</span>
-            </summary>
+<header class="site-header wrap">
+  <strong><a href="index.html" style="color:inherit;text-decoration:none;">Taw Naylor</a></strong>
 
-            <div class="theme-extra" role="group" aria-label="Choose color scheme">
-                <label class="theme-control theme-pick" data-theme-pick="light">
-                    <input name="theme-preference" type="radio" value="light">
-                    <span aria-hidden="true">&#9788;&#65039;</span>
-                    <span class="visually-hidden">Light</span>
-                </label>
+  <nav aria-label="Primary">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="hub.html">Coursework</a></li>
+      <li><a href="resume.html">Résumé</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
 
-                <label class="theme-control theme-pick" data-theme-pick="system">
-                    <input name="theme-preference" type="radio" value="system" checked>
-                    <span aria-hidden="true">&#9881;&#65039;</span>
-                    <span class="visually-hidden">System default</span>
-                </label>
+  <fieldset class="theme-toggle">
+    <legend class="visually-hidden">Color scheme</legend>
+    <label><input type="radio" name="theme" value="light"> <span>☼️ Light</span></label>
+    <label><input type="radio" name="theme" value="system"> <span>⚙️ System default</span></label>
+    <label><input type="radio" name="theme" value="dark"> <span>🌖 Dark</span></label>
+  </fieldset>
+</header>
 
-                <label class="theme-control theme-pick" data-theme-pick="dark">
-                    <input name="theme-preference" type="radio" value="dark">
-                    <span aria-hidden="true">&#127766;</span>
-                    <span class="visually-hidden">Dark</span>
-                </label>
-            </div>
-        </details>
-    </nav>
+<main>
+  <section class="hero wrap">
+    <p class="hero__eyebrow">Web Design &amp; Development — BYU-Idaho</p>
+    <h1>Taw Naylor</h1>
+    <p class="hero__lede">
+      I build interfaces with intent — token-driven color systems, cascade-layer
+      architecture, and motion that respects reduced-motion settings. This site
+      is both my coursework log and my proof of work.
+    </p>
+    <div class="hero__actions">
+      <a class="btn btn--primary" href="#featured">See featured projects</a>
+      <a class="btn btn--ghost" href="hub.html">Browse all coursework</a>
+      <a class="btn btn--ghost" href="resume.html">Résumé</a>
+    </div>
+  </section>
 
-    <header class="page-header">
-        <h1>Taw Naylor</h1>
-        <p>WDD 331R Advanced CSS &mdash; Practice Site</p>
-    </header>
+  <section class="featured wrap" id="featured">
+    <h2>Featured work</h2>
+    <div class="featured__grid">
 
-    <main>
-        <section>
-            <h2>Assignments</h2>
-            <div class="card-grid">
-                <article class="card">
-                    <span class="card-tag">Unit 1</span>
-                    <h3>Custom Properties &amp; Nesting</h3>
-                    <p>Exploring CSS custom properties, design tokens, and native CSS nesting to build a maintainable style system for a Ward Activity Board.</p>
-                    <a href="unit-1/custom-properties/index.html" class="card-link">View Assignment</a>
-                </article>
+      <article class="project-card">
+        <div class="project-card__tag">Personal Project</div>
+        <h3>CardFlow</h3>
+        <p>A trading card collection manager with a token-driven CSS architecture, dark mode, and animation support.</p>
+        <a href="https://tawnaylor.github.io/cardflow/">View project →</a>
+      </article>
 
-                <article class="card">
-                    <span class="card-tag">Unit 2</span>
-                    <h3>Layered Components</h3>
-                    <p>Building a full CSS architecture with cascade layers (@layer) to organize tokens, base styles, layout, components, and utilities.</p>
-                    <a href="unit-2/layered-components/index.html" class="card-link">View Assignment</a>
-                </article>
+      <article class="project-card">
+        <div class="project-card__tag">Team Project</div>
+        <h3>D&amp;D Companion App</h3>
+        <p>Collaborative character and monster creation app, backed by a relational MySQL schema for monsters, characters, and dice roll logs.</p>
+        <a href="#">View project →</a>
+      </article>
 
-                <article class="card">
-                    <span class="card-tag">Unit 3</span>
-                    <h3>Visual Effects</h3>
-                    <p>Applying gradients, layered shadows, filters, and frosted glass treatments to build a visual effects showcase page.</p>
-                    <a href="unit-3/visual-effects/index.html" class="card-link">View Assignment</a>
-                </article>
+      <article class="project-card">
+        <div class="project-card__tag">Solo Project</div>
+        <h3>ASCEND</h3>
+        <p>A fitness app prototype with a Solo Leveling-inspired progression system in place of a plain tracker — custom UI components and icon system.</p>
+        <a href="#">View project →</a>
+      </article>
 
-                <article class="card">
-                    <span class="card-tag">Unit 4</span>
-                    <h3>Grid Layouts</h3>
-                    <p>Exploring editorial page structure and responsive card grids with CSS Grid, intrinsic sizing, and flexible content alignment.</p>
-                    <a href="unit-4/grid-layouts/editorial.html" class="card-link">View Editorial Layout</a>
-                    <a href="unit-4/grid-layouts/cards.html" class="card-link">View Card Grid</a>
-                </article>
+    </div>
+  </section>
+</main>
 
-                <article class="card">
-                    <span class="card-tag">Unit 5</span>
-                    <h3>Typography Tokens</h3>
-                    <p>Demonstrating the modular type scale, semantic typography tokens, and the Merriweather heading font on a dedicated page.</p>
-                    <a href="unit-5/typography/index.html" class="card-link">View Assignment</a>
-                </article>
+<footer class="site-footer wrap">
+  <p>WDD 331R Advanced CSS — <a href="hub.html">full coursework hub</a> — <a href="contact.html">Contact Me</a></p>
+</footer>
 
-                <article class="card">
-                    <span class="card-tag">Unit 6</span>
-                    <h3>Motion &amp; Reduced-Motion Support</h3>
-                    <p>Applying transitions, keyframes, and reduced-motion fallbacks to an activity dashboard interface.</p>
-                    <a href="unit-6/motion/index.html" class="card-link">Motion &amp; Reduced-Motion Support</a>
-                </article>
-
-                <article class="card">
-                    <span class="card-tag">Portfolio</span>
-                    <h3>Résumé</h3>
-                    <p>View a polished résumé page highlighting front-end development, design work, coursework, and project experience in the shared site style.</p>
-                    <a href="resume.html" class="card-link">View Résumé</a>
-                </article>
-            </div>
-        </section>
-
-        <section>
-            <h2>Unit 4 Advanced</h2>
-            <h3>Subgrid and Container Layouts</h3>
-            <p>
-                These pages demonstrate the required advanced layout features: subgrid,
-                container queries, and sticky positioning.
-            </p>
-
-            <div class="card-grid">
-                <article class="card">
-                    <span class="card-tag">Unit 4 Advanced</span>
-                    <h3>Card Grid with Subgrid</h3>
-                    <p>Updated card grid demo showing aligned title, body, and action rows across each card row.</p>
-                    <a href="unit-4/grid-layouts/cards.html" class="card-link">View Demo</a>
-                </article>
-
-                <article class="card">
-                    <span class="card-tag">Unit 4 Advanced</span>
-                    <h3>Container Query Product Demo</h3>
-                    <p>Same product card component changes layout based on container width.</p>
-                    <a href="unit-4/advanced/container-demo.html" class="card-link">View Demo</a>
-                </article>
-
-                <article class="card">
-                    <span class="card-tag">Unit 4 Advanced</span>
-                    <h3>Sticky Trail Guide Demo</h3>
-                    <p>Sticky sidebar module with a CSS comment explaining the overflow bug fix.</p>
-                    <a href="unit-4/advanced/sticky-demo.html" class="card-link">View Demo</a>
-                </article>
-            </div>
-        </section>
-    </main>
-
-    <footer class="page-footer">
-        <p>WDD 331R Advanced CSS &mdash; Spring 2026</p>
-    </footer>
 </body>
 </html>
